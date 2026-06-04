@@ -1,0 +1,47 @@
+# Lecture 4 — Mathematics examples (demonstrating Markdown + LaTeX rendering)
+
+- question: "Which of the following is the correct expansion of $(a+b)^2$?"
+  type: single
+  answers:
+    - "$a^2 + b^2$"
+    - "$a^2 + ab + b^2$"
+    - "$a^2 + 2ab + b^2$"
+    - "$2a + 2b$"
+  correct: "C — Expand: $(a+b)^2 = a^2 + 2ab + b^2$."
+
+- question: |
+    What is the closed-form result of this sum?
+
+    $$\sum_{i=1}^{n} i$$
+  type: single
+  answers:
+    - "$\\dfrac{n(n+1)}{2}$"
+    - "$n^2$"
+    - "$\\dfrac{n^2+1}{2}$"
+    - "$n(n-1)$"
+  correct: "A — Gauss's formula: the sum of the first n integers is n(n+1)/2."
+
+- question: |
+    The following Python function computes the sum $\sum_{i=1}^{n} i$.
+    Which implementation is correct?
+
+    ```python
+    def gauss(n):
+        ???
+    ```
+  type: single
+  answers:
+    - "`return n * (n + 1) // 2`"
+    - "`return n * (n - 1) // 2`"
+    - "`return sum(range(n))`"
+    - "`return n ** 2 // 2`"
+  correct: "A — Gauss's formula. Note: sum(range(n)) gives 0+1+…+(n-1), which is off by n."
+
+- question: "Which of the following statements about $e^x$ are true?"
+  type: multiple
+  answers:
+    - "The derivative of $e^x$ is $e^x$"
+    - "$e^0 = 1$"
+    - "$e^x < 0$ for some real $x$"
+    - "$e^x = \\displaystyle\\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$"
+  correct: "A, B, D — e^x is always positive for real x, so C is false."
