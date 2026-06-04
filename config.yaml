@@ -1,2 +1,8 @@
+# Stable URL segment for the student join link: /join/<session_url>
+# Students can bookmark this — it stays the same across all questions in a lecture.
+# If omitted, a random short ID is generated each time a question is activated.
 session_url: python101
+
+# Display name shown in the header and browser tab as "QuiQui: <title>"
+# Appears on both teacher and student views.
 title: Python 101

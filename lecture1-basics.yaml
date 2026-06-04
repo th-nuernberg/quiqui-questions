@@ -3,38 +3,44 @@
 - question: "Which of the following is a valid way to create a variable in Python?"
   type: single
   answers:
-    - "int x = 5"
-    - "x = 5"
-    - "var x = 5"
-    - "let x = 5"
+    - "`int x = 5`"
+    - "`x = 5`"
+    - "`var x = 5`"
+    - "`let x = 5`"
   correct: "B — Python uses dynamic typing, no type declaration or keyword needed."
 
-- question: "What does the following code print?\n\nfor i in range(3):\n    print(i)"
+- question: |
+    What does the following code print?
+
+    ```python
+    for i in range(3):
+        print(i)
+    ```
   type: single
   answers:
-    - "1 2 3"
-    - "0 1 2 3"
-    - "0 1 2"
-    - "1 2"
+    - "`1 2 3`"
+    - "`0 1 2 3`"
+    - "`0 1 2`"
+    - "`1 2`"
   correct: "C — range(3) produces 0, 1, 2. It starts at 0 and excludes the upper bound."
 
 - question: "Which of these are valid Python data types?"
   type: multiple
   answers:
-    - "int"
-    - "float"
-    - "char"
-    - "str"
-    - "bool"
+    - "`int`"
+    - "`float`"
+    - "`char`"
+    - "`str`"
+    - "`bool`"
   correct: "A, B, D, E — Python has no char type; single characters are strings of length 1."
 
-- question: "What is the result of 7 // 2 in Python?"
+- question: "What is the result of `7 // 2` in Python?"
   type: single
   answers:
-    - "3.5"
-    - "3"
-    - "4"
-    - "2"
+    - "`3.5`"
+    - "`3`"
+    - "`4`"
+    - "`2`"
   correct: "B — // is floor division. 7 / 2 = 3.5, floored to 3."
 
 - question: "Which statements about Python indentation are true?"

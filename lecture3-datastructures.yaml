@@ -3,44 +3,50 @@
 - question: "Which Python data structure preserves insertion order and allows duplicates?"
   type: single
   answers:
-    - "set"
-    - "dict"
-    - "list"
-    - "frozenset"
+    - "`set`"
+    - "`dict`"
+    - "`list`"
+    - "`frozenset`"
   correct: "C — Lists are ordered and allow duplicate values."
 
-- question: "What is the output of this code?\n\nd = {'a': 1, 'b': 2}\nprint(d['c'])"
+- question: |
+    What is the output of this code?
+
+    ```python
+    d = {'a': 1, 'b': 2}
+    print(d['c'])
+    ```
   type: single
   answers:
-    - "None"
-    - "0"
-    - "KeyError"
+    - "`None`"
+    - "`0`"
+    - "`KeyError`"
     - "An empty string"
-  correct: "C — Accessing a missing key raises a KeyError. Use d.get('c') to get None instead."
+  correct: "C — Accessing a missing key raises a KeyError. Use `d.get('c')` to get None instead."
 
 - question: "Which of the following are true about Python sets?"
   type: multiple
   answers:
     - "Sets are unordered"
     - "Sets allow duplicate values"
-    - "Sets support membership testing with 'in'"
+    - "Sets support membership testing with `in`"
     - "Sets can contain lists as elements"
-  correct: "A, C — Sets are unordered, deduplicate automatically, and support fast 'in' checks. Lists are unhashable so cannot be set elements."
+  correct: "A, C — Sets are unordered, deduplicate automatically, and support fast `in` checks. Lists are unhashable so cannot be set elements."
 
 - question: "Which method removes and returns the last element of a list?"
   type: single
   answers:
-    - "list.remove()"
-    - "list.pop()"
-    - "list.delete()"
-    - "list.discard()"
+    - "`list.remove()`"
+    - "`list.pop()`"
+    - "`list.delete()`"
+    - "`list.discard()`"
   correct: "B — pop() without an argument removes and returns the last element."
 
 - question: "Which of the following create a dictionary in Python?"
   type: multiple
   answers:
-    - "{'key': 'value'}"
-    - "dict(key='value')"
-    - "['key', 'value']"
-    - "dict([('key', 'value')])"
+    - "`{'key': 'value'}`"
+    - "`dict(key='value')`"
+    - "`['key', 'value']`"
+    - "`dict([('key', 'value')])`"
   correct: "A, B, D — C creates a list, not a dictionary."

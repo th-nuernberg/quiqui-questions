@@ -3,28 +3,34 @@
 - question: "What keyword is used to define a function in Python?"
   type: single
   answers:
-    - "function"
-    - "fun"
-    - "def"
-    - "define"
-  correct: "C — def is the keyword. Example: def my_function():"
+    - "`function`"
+    - "`fun`"
+    - "`def`"
+    - "`define`"
+  correct: "C — def is the keyword. Example: `def my_function():`"
 
-- question: "What will this function return?\n\ndef add(a, b):\n    result = a + b"
+- question: |
+    What will this function return?
+
+    ```python
+    def add(a, b):
+        result = a + b
+    ```
   type: single
   answers:
-    - "The sum of a and b"
-    - "0"
-    - "None"
-    - "A SyntaxError"
+    - "The sum of `a` and `b`"
+    - "`0`"
+    - "`None`"
+    - "A `SyntaxError`"
   correct: "C — A function with no return statement implicitly returns None."
 
-- question: "Which of the following are valid ways to call a function greet(name, greeting='Hello')?"
+- question: "Which of the following are valid ways to call `greet(name, greeting='Hello')`?"
   type: multiple
   answers:
-    - "greet('Alice')"
-    - "greet('Alice', 'Hi')"
-    - "greet(greeting='Hi', name='Alice')"
-    - "greet()"
+    - "`greet('Alice')`"
+    - "`greet('Alice', 'Hi')`"
+    - "`greet(greeting='Hi', name='Alice')`"
+    - "`greet()`"
   correct: "A, B, C — D is invalid because name has no default value and must be provided."
 
 - question: "What is the scope of a variable defined inside a function?"
@@ -36,11 +42,11 @@
     - "It depends on the variable name"
   correct: "B — Variables defined inside a function are local and not visible outside it."
 
-- question: "Which statements about *args and **kwargs are true?"
+- question: "Which statements about `*args` and `**kwargs` are true?"
   type: multiple
   answers:
-    - "*args collects extra positional arguments as a tuple"
-    - "**kwargs collects extra keyword arguments as a dict"
-    - "*args must always come after **kwargs"
+    - "`*args` collects extra positional arguments as a tuple"
+    - "`**kwargs` collects extra keyword arguments as a dict"
+    - "`*args` must always come after `**kwargs`"
     - "Both are optional in a function signature"
   correct: "A, B, D — *args must come before **kwargs, not after."
