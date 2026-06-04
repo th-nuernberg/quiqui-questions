@@ -4,6 +4,8 @@ Sample question files for [QuiQui](https://github.com/albrechtje/quiqui), a live
 
 Each `.yaml` file in this repo represents one lecture's questions. Point QuiQui at this repo URL and select a file to load its questions.
 
+> **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. A typical lecture file is well under 50 KB.
+
 ---
 
 ## Question format
