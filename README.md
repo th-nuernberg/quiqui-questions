@@ -118,6 +118,7 @@ title: Python 101
 
 | File | Topic |
 |---|---|
+| `config.yaml` | configures title and url slug
 | `lecture1-basics.yaml` | Python basics — variables, types, loops |
 | `lecture2-functions.yaml` | Functions, scope, *args/**kwargs |
 | `lecture3-datastructures.yaml` | Lists, dicts, sets |
