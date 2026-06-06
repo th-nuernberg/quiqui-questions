@@ -4,7 +4,7 @@ Sample question files for [QuiQui](https://github.com/albrechtje/quiqui), a live
 
 Each `.yaml` file in this repo represents one lecture's questions. Point QuiQui at this repo URL and select a file to load its questions.
 
-> **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. A typical lecture file is well under 50 KB.
+> **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. Each question may have at most **6 answer options** (A–F). YAML files are validated on load — format errors are shown as a clear error message in the teacher view. A typical lecture file is well under 50 KB.
 
 ---
 
@@ -17,7 +17,7 @@ Each question is a YAML list item with the following fields:
 | `question` | yes | Question text — plain text, Markdown, or LaTeX |
 | `type` | yes | `single` (one answer) or `multiple` (one or more) |
 | `answers` | yes | List of answer options |
-| `correct` | yes | List of correct answer letters, e.g. `[B]` or `[A, C, D]` — teacher-only, never shown to students |
+| `correct` | yes | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; teacher-only, never shown to students |
 | `explanation` | no | Optional explanation shown only to the teacher |
 
 The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the teacher's **Show answer** button to highlight the correct options for the whole room.
