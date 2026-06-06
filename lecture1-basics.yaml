@@ -7,7 +7,7 @@
     - "`x = 5`"
     - "`var x = 5`"
     - "`let x = 5`"
-  correct: [B]
+  correct: B
   explanation: "Python uses dynamic typing, no type declaration or keyword needed."
 
 - question: |
@@ -23,7 +23,7 @@
     - "`0 1 2 3`"
     - "`0 1 2`"
     - "`1 2`"
-  correct: [C]
+  correct: C
   explanation: "range(3) produces 0, 1, 2. It starts at 0 and excludes the upper bound."
 
 - question: "Which of these are valid Python data types?"
@@ -34,7 +34,11 @@
     - "`char`"
     - "`str`"
     - "`bool`"
-  correct: [A, B, D, E]
+  correct:
+    - A
+    - B
+    - D
+    - E
   explanation: "Python has no char type; single characters are strings of length 1."
 
 - question: "What is the result of `7 // 2` in Python?"
@@ -44,7 +48,7 @@
     - "`3`"
     - "`4`"
     - "`2`"
-  correct: [B]
+  correct: B
   explanation: "// is floor division. 7 / 2 = 3.5, floored to 3."
 
 - question: "Which statements about Python indentation are true?"
@@ -54,5 +58,7 @@
     - "You can mix tabs and spaces freely"
     - "Consistent indentation is required"
     - "Curly braces define blocks, indentation is optional"
-  correct: [A, C]
+  correct:
+    - A
+    - C
   explanation: "Mixing tabs and spaces causes a TabError in Python 3."

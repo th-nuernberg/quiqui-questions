@@ -7,7 +7,7 @@
     - "$a^2 + ab + b^2$"
     - "$a^2 + 2ab + b^2$"
     - "$2a + 2b$"
-  correct: [C]
+  correct: C
   explanation: "Expand: $(a+b)^2 = a^2 + 2ab + b^2$."
 
 - question: |
@@ -20,7 +20,7 @@
     - "$n^2$"
     - "$\\dfrac{n^2+1}{2}$"
     - "$n(n-1)$"
-  correct: [A]
+  correct: A
   explanation: "Gauss's formula: the sum of the first n integers is n(n+1)/2."
 
 - question: |
@@ -37,7 +37,7 @@
     - "`return n * (n - 1) // 2`"
     - "`return sum(range(n))`"
     - "`return n ** 2 // 2`"
-  correct: [A]
+  correct: A
   explanation: "Gauss's formula. Note: sum(range(n)) gives 0+1+…+(n-1), which is off by n."
 
 - question: "Which of the following statements about $e^x$ are true?"
@@ -47,5 +47,8 @@
     - "$e^0 = 1$"
     - "$e^x < 0$ for some real $x$"
     - "$e^x = \\displaystyle\\sum_{k=0}^{\\infty} \\frac{x^k}{k!}$"
-  correct: [A, B, D]
+  correct:
+    - A
+    - B
+    - D
   explanation: "e^x is always positive for real x, so C is false."

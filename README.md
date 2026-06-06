@@ -22,6 +22,8 @@ Each question is a YAML list item with the following fields:
 
 The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the teacher's **Show answer** button to highlight the correct options for the whole room.
 
+For a single correct answer, use a bare letter. For multiple correct answers, use a block sequence.
+
 ### Single choice
 
 ```yaml
@@ -32,7 +34,7 @@ The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower 
     - "`3`"
     - "`4`"
     - "`2`"
-  correct: [B]
+  correct: B
   explanation: "// is floor division. 7 / 2 = 3.5, floored to 3."
 ```
 
@@ -47,7 +49,11 @@ The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower 
     - "`char`"
     - "`str`"
     - "`bool`"
-  correct: [A, B, D, E]
+  correct:
+    - A
+    - B
+    - D
+    - E
   explanation: "Python has no char type; single characters are strings of length 1."
 ```
 
@@ -68,7 +74,7 @@ Use a YAML block scalar (`|`) for multi-line question text with fenced code bloc
     - "`1 2 3`"
     - "`0 1 2`"
     - "`0 1 2 3`"
-  correct: [B]
+  correct: B
   explanation: "range(3) produces 0, 1, 2."
 ```
 
@@ -82,7 +88,7 @@ Use `$...$` for inline math and `$$...$$` for a centred display block. Both work
   answers:
     - "$a^2 + b^2$"
     - "$a^2 + 2ab + b^2$"
-  correct: [B]
+  correct: B
   explanation: "$(a+b)^2 = a^2 + 2ab + b^2$."
 ```
 
@@ -95,7 +101,7 @@ Use `$...$` for inline math and `$$...$$` for a centred display block. Both work
   answers:
     - "$\dfrac{n(n+1)}{2}$"
     - "$n^2$"
-  correct: [A]
+  correct: A
   explanation: "Gauss's formula."
 ```
 

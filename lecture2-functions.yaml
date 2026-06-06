@@ -7,7 +7,7 @@
     - "`fun`"
     - "`def`"
     - "`define`"
-  correct: [C]
+  correct: C
   explanation: "def is the keyword. Example: `def my_function():`"
 
 - question: |
@@ -23,7 +23,7 @@
     - "`0`"
     - "`None`"
     - "A `SyntaxError`"
-  correct: [C]
+  correct: C
   explanation: "A function with no return statement implicitly returns None."
 
 - question: "Which of the following are valid ways to call `greet(name, greeting='Hello')`?"
@@ -33,7 +33,10 @@
     - "`greet('Alice', 'Hi')`"
     - "`greet(greeting='Hi', name='Alice')`"
     - "`greet()`"
-  correct: [A, B, C]
+  correct:
+    - A
+    - B
+    - C
   explanation: "D is invalid because name has no default value and must be provided."
 
 - question: "What is the scope of a variable defined inside a function?"
@@ -43,7 +46,7 @@
     - "Local — accessible only within that function"
     - "Module — accessible within the same file"
     - "It depends on the variable name"
-  correct: [B]
+  correct: B
   explanation: "Variables defined inside a function are local and not visible outside it."
 
 - question: "Which statements about `*args` and `**kwargs` are true?"
@@ -53,5 +56,8 @@
     - "`**kwargs` collects extra keyword arguments as a dict"
     - "`*args` must always come after `**kwargs`"
     - "Both are optional in a function signature"
-  correct: [A, B, D]
+  correct:
+    - A
+    - B
+    - D
   explanation: "*args must come before **kwargs, not after."
