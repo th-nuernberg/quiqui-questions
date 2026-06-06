@@ -119,11 +119,11 @@ An optional `config.yaml` at the root of the repo configures the session:
 # Stable URL segment for the student join link: /join/<session_url>
 # Students can bookmark this — it stays the same across all questions in a lecture.
 # If omitted, a random short ID is generated each time a question is activated.
-session_url: python101
+session_url: demo
 
 # Display name shown in the header and browser tab as "QuiQui: <title>"
 # Appears on both teacher and student views.
-title: Python 101
+title: Demo Quiz
 ```
 
 ---
@@ -132,8 +132,10 @@ title: Python 101
 
 | File | Topic |
 |---|---|
-| `config.yaml` | configures title and url slug
-| `lecture1-basics.yaml` | Python basics — variables, types, loops |
-| `lecture2-functions.yaml` | Functions, scope, *args/**kwargs |
-| `lecture3-datastructures.yaml` | Lists, dicts, sets |
-| `lecture4-mathematics.yaml` | LaTeX rendering examples — inline and display math, mixed code+math |
+| `config.yaml` | configures title and url slug |
+| `lecture1-python-basics.yaml` | Python basics — variables, types, loops |
+| `lecture2-python-maths.yaml` | Python for maths — NumPy, float precision, recursion |
+| `lecture3-maths.yaml` | Linear algebra and statistics — eigenvectors, normal distribution, correlation |
+| `lecture4-economics.yaml` | Microeconomics — demand, market equilibrium, elasticity (English) |
+| `lecture5-sozialwissenschaften.yaml` | Sozialwissenschaften — Schichtung, Bürokratie, Forschungsmethoden (Deutsch) |
+| `lecture6-geschichte.yaml` | Geschichte — Weltkriege, Weimarer Republik, Französische Revolution (Deutsch) |

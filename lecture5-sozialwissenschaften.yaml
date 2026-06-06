@@ -1,0 +1,67 @@
+# Lecture 5 — Sozialwissenschaften (Deutsch)
+
+- question: "Was versteht man in der Soziologie unter dem Begriff **soziale Schichtung**?"
+  type: single
+  answers:
+    - "Die geografische Verteilung der Bevölkerung"
+    - "Die hierarchische Einteilung von Gesellschaftsmitgliedern nach Prestige, Einkommen oder Macht"
+    - "Die Einteilung von Berufsgruppen nach Ausbildungsdauer"
+    - "Die kulturelle Vielfalt innerhalb einer Gesellschaft"
+  correct: B
+  explanation: "Soziale Schichtung beschreibt die vertikale Gliederung einer Gesellschaft in Gruppen mit unterschiedlichem sozialen Status."
+
+- question: "Welche der folgenden Merkmale sind typisch für eine **Bürokratie** im Sinne Max Webers?"
+  type: multiple
+  answers:
+    - "Klare Kompetenzabgrenzung und Amtshierarchie"
+    - "Entscheidungen nach persönlichen Beziehungen"
+    - "Schriftliche Aktenführung"
+    - "Regelgebundenes, unpersönliches Handeln"
+  correct:
+    - A
+    - C
+    - D
+  explanation: "Weber beschreibt die Bürokratie als rationale Herrschaftsform mit festen Regeln, Akten und Hierarchien — nicht als persönliches Netzwerk."
+
+- question: "Was beschreibt der Begriff **Sozialisation**?"
+  type: single
+  answers:
+    - "Den Übergang von einer privaten zu einer staatlichen Wirtschaftsform"
+    - "Den Prozess, durch den Individuen gesellschaftliche Normen und Werte erlernen"
+    - "Die politische Beteiligung von Bürgerinnen und Bürgern"
+    - "Die Messung von Einstellungen in Umfragen"
+  correct: B
+  explanation: "Sozialisation bezeichnet den lebenslangen Prozess der Einbindung von Individuen in gesellschaftliche Strukturen und Normen."
+
+- question: "Was ist wahr für **qualitative Forschungsmethoden** in den Sozialwissenschaften?"
+  type: multiple
+  answers:
+    - "Sie eignen sich zur Untersuchung subjektiver Bedeutungen und Erfahrungen"
+    - "Ergebnisse lassen sich in der Regel leicht auf große Populationen verallgemeinern"
+    - "Typische Methoden sind Interviews und teilnehmende Beobachtung"
+    - "Sie verzichten auf statistische Signifikanztests"
+  correct:
+    - A
+    - C
+    - D
+  explanation: "Qualitative Methoden zielen auf Tiefenverständnis, nicht auf statistische Repräsentativität. Verallgemeinbarkeit ist begrenzt und wird anders bewertet als in quantitativer Forschung."
+
+- question: "Welche Partei gehört traditionell dem **linken** politischen Spektrum an?"
+  type: single
+  answers:
+    - "CDU/CSU"
+    - "FDP"
+    - "Die Linke"
+    - "AfD"
+  correct: C
+  explanation: "Die Linke positioniert sich explizit links: für staatliche Umverteilung, Sozialstaatsausbau und gegen marktwirtschaftliche Deregulierung."
+
+- question: "Was versteht man in der Politikwissenschaft unter **deliberativer Demokratie**?"
+  type: single
+  answers:
+    - "Entscheidungen durch Volksabstimmung mit einfacher Mehrheit"
+    - "Herrschaft einer gewählten Elite auf Zeit"
+    - "Politische Entscheidungsfindung durch rationale, öffentliche Diskussion und Argumentation"
+    - "Die Trennung von Staat und Zivilgesellschaft"
+  correct: C
+  explanation: "Deliberative Demokratie betont den diskursiven Prozess — Entscheidungen sollen durch vernünftige Argumentation aller Beteiligten legitimiert werden (Habermas)."
