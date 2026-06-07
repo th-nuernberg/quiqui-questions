@@ -11,10 +11,10 @@
 - question: "Choose your answer! (A, B, C, D)"
   type: single
   answers:
-    - "A"
-    - "B"
-    - "C"
-    - "D"
+    - "... is correct"
+    - "... is correct"
+    - "... is correct"
+    - "... is correct"
 
 # ── Multiple choice: A / B / C / D / E ────────────────────────────────────────
 
