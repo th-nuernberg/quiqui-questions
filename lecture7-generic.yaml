@@ -1,0 +1,55 @@
+# Generic answer templates — no "correct" field
+#
+# Use these when your question text lives in your slides.
+# QuiQui collects votes and shows the live bar chart;
+# the Reveal button is hidden since there is no correct answer to highlight.
+#
+# Duplicate or mix questions from this file as needed.
+
+# ── Single choice: A / B / C / D ─────────────────────────────────────────────
+
+- question: "Choose your answer!"
+  type: single
+  answers:
+    - "A"
+    - "B"
+    - "C"
+    - "D"
+
+# ── Multiple choice: A / B / C / D / E ────────────────────────────────────────
+
+- question: "Choose one or more answers!"
+  type: multiple
+  answers:
+    - "A"
+    - "B"
+    - "C"
+    - "D"
+    - "E"
+
+# ── Yes / No ──────────────────────────────────────────────────────────────────
+
+- question: "What do you think?"
+  type: single
+  answers:
+    - "A — Yes"
+    - "B — No"
+
+# ── True / False ──────────────────────────────────────────────────────────────
+
+- question: "Is the statement true or false?"
+  type: single
+  answers:
+    - "A — True"
+    - "B — False"
+
+# ── Agreement scale: Strongly agree … Strongly disagree ──────────────────────
+
+- question: "What is your rating?"
+  type: single
+  answers:
+    - "A — Strongly agree"
+    - "B — Agree"
+    - "C — Neutral"
+    - "D — Disagree"
+    - "E — Strongly disagree"

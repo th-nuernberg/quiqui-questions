@@ -17,10 +17,10 @@ Each question is a YAML list item with the following fields:
 | `question` | yes | Question text — plain text, Markdown, or LaTeX |
 | `type` | yes | `single` (one answer) or `multiple` (one or more) |
 | `answers` | yes | List of answer options |
-| `correct` | yes | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; teacher-only, never shown to students |
+| `correct` | no | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; teacher-only, never shown to students. Omit for unscored/generic questions. |
 | `explanation` | no | Optional explanation shown only to the teacher |
 
-The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the teacher's **✓ Reveal** button to highlight the correct options for the whole room.
+The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the teacher's **✓ Reveal** button to highlight the correct options for the whole room. When `correct` is omitted, the Reveal button is hidden — useful when you keep the question text in your slides and only use QuiQui to collect votes.
 
 For a single correct answer, use a bare letter. For multiple correct answers, use a block sequence.
 
@@ -107,6 +107,44 @@ Use `$...$` for inline math and `$$...$$` for a centred display block. Both work
 
 Code and math can be combined freely in the same question.
 
+### Generic / unscored questions
+
+Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically.
+
+```yaml
+# A–D single choice — display the question in your slides
+- question: "(see slide)"
+  type: single
+  answers:
+    - "A"
+    - "B"
+    - "C"
+    - "D"
+
+# Yes / No
+- question: "(see slide)"
+  type: single
+  answers:
+    - "A — Yes"
+    - "B — No"
+
+# True / False
+- question: "(see slide)"
+  type: single
+  answers:
+    - "A — True"
+    - "B — False"
+
+# Multiple choice A–D — students may select more than one
+- question: "(see slide)"
+  type: multiple
+  answers:
+    - "A"
+    - "B"
+    - "C"
+    - "D"
+```
+
 > **YAML escaping:** inside quoted strings (`"..."`) backslashes must be doubled: `\\frac`, `\\sum`. Inside block scalars (`|`) a single backslash is fine: `\frac`, `\sum`.
 
 ---
@@ -139,3 +177,4 @@ title: Demo Quiz
 | `lecture4-economics.yaml` | Microeconomics — demand, market equilibrium, elasticity (English) |
 | `lecture5-sozialwissenschaften.yaml` | Sozialwissenschaften — Schichtung, Bürokratie, Forschungsmethoden (Deutsch) |
 | `lecture6-geschichte.yaml` | Geschichte — Weltkriege, Weimarer Republik, Französische Revolution (Deutsch) |
+| `lecture7-generic.yaml` | Generic answer templates — A/B/C/D, Yes/No, True/False; use when your question text is in your slides |
