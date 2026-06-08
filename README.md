@@ -162,12 +162,12 @@ An optional `config.yaml` at the root of the repo configures the session:
 # If omitted, a random short ID is generated each time a question is activated.
 session_url: demo
 
+# Optional: a custom shortlink students can type instead of the long /join/ URL.
+# student_shortlink: https://t.ly/your-code
+
 # Display name shown in the header and browser tab as "QuiQui: <title>"
 # Appears on both teacher and student views.
 title: Demo Quiz
-
-# Optional: a custom shortlink students can type instead of the long /join/ URL.
-# student_shortlink: https://t.ly/your-code
 ```
 
 > **`session_url` must be unique across all users of the same QuiQui instance.** If two lecturers use the same name (e.g. `demo` or `python101`) at the same time, the second pull will fail with a conflict error. Prefix your URL with an organisation or course abbreviation to avoid clashes — for example `tum-python101` or `ki-zentrum-demo`.

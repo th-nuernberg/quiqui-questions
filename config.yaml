@@ -9,7 +9,6 @@
 session_url: demo
 
 # Optional: a custom shortlink students can type instead of the long /join/ URL.
-
 # student_shortlink: https://t.ly/your-code
 
 # Display name shown in the header and browser tab as "QuiQui: <title>"
