@@ -111,7 +111,7 @@ Code and math can be combined freely in the same question.
 
 Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically. Each answer option is labelled with a letter badge (A, B, C, …) — students pick the letter shown on the slide.
 
-`lecture7-generic.yaml` contains ready-to-use templates. Examples:
+`generic.yaml` contains ready-to-use templates. Examples:
 
 ```yaml
 # A–D single choice
@@ -161,7 +161,7 @@ You are helping me write a question file for QuiQui, a live audience-response
 tool for university lectures. Produce ONE valid YAML file following the exact
 format described below. Output only the YAML, inside a single code block, with
 no commentary before or after.
-
+I
 WHAT I WANT:
 - Topic: [FILL IN — e.g. "Python basics: variables, loops, data types"]
 - Number of questions: [FILL IN — e.g. 8]
@@ -261,4 +261,4 @@ QuiQui treats it as display-only: it does **not** create the shortlink or check 
 | `lecture4-economics.yaml` | Microeconomics — demand, market equilibrium, elasticity (English) |
 | `lecture5-sozialwissenschaften.yaml` | Sozialwissenschaften — Schichtung, Bürokratie, Forschungsmethoden (Deutsch) |
 | `lecture6-geschichte.yaml` | Geschichte — Weltkriege, Weimarer Republik, Französische Revolution (Deutsch) |
-| `lecture7-generic.yaml` | Generic answer templates — A/B/C/D, Yes/No, True/False; use when your question text is in your slides |
+| `generic.yaml` | Generic answer templates — A/B/C/D, Yes/No, True/False; use when your question text is in your slides |
