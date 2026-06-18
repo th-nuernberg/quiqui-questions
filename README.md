@@ -1,6 +1,6 @@
 # Demo questions for QuiQui - the completely free and open interactive lecture quiz tool
 
-Sample question files for [QuiQui](https://github.com/albrechtje/quiqui), a live audience response tool for university lectures.
+Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a live audience response tool for university lectures.
 
 Each `.yaml` file in this repo represents one lecture's questions. Point QuiQui at this repo URL and select a file to load its questions.
 
