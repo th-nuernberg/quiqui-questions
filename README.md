@@ -107,6 +107,10 @@ Use `$...$` for inline math and `$$...$$` for a centred display block. Both work
 
 Code and math can be combined freely in the same question.
 
+### More formatting examples
+
+`formatting-examples.yaml` has runnable examples of the formatting options above plus a few more: naked URLs, Markdown-style links, inline images (`![alt](url)`), and raw HTML such as colored text, highlights, and sub/superscript. It doesn't cover every possible case — tables and blockquotes, for instance, also render fine (Markdown via `marked`, sanitised by DOMPurify) but aren't demonstrated yet. Feel free to extend the file with more examples as new formatting needs come up.
+
 ### Generic / unscored questions
 
 Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically. Each answer option is labelled with a letter badge (A, B, C, …) — students pick the letter shown on the slide.

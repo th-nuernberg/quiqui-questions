@@ -2,15 +2,18 @@
 #
 # Shows every text-formatting feature QuiQui supports: Markdown styling,
 # raw HTML (color, highlight, sub/superscript), naked URLs, Markdown-style
-# links, code spans, and LaTeX math. All rendered via marked + KaTeX +
-# DOMPurify — safe HTML passes through, everything else renders as Markdown.
+# links, inline images, code spans, and LaTeX math. All rendered via marked +
+# KaTeX + DOMPurify — safe HTML passes through, everything else renders as
+# Markdown.
 #
 # Links point to Wikipedia and open in a new tab automatically.
 
-# ── Bold / italic (Markdown) ─────────────────────────────────────────────────
+# ── Bold / italic (Markdown) + inline image ──────────────────────────────────
 
 - question: |
     The **Eiffel Tower** was completed in *1889* for the World's Fair in Paris.
+
+    ![Eiffel Tower](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons.jpg/400px-Tour_Eiffel_Wikimedia_Commons.jpg)
 
     Learn more: [Eiffel Tower – Wikipedia](https://en.wikipedia.org/wiki/Eiffel_Tower)
 
