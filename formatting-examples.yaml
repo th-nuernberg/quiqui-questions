@@ -1,0 +1,104 @@
+# Formatting examples — general knowledge questions
+#
+# Shows every text-formatting feature QuiQui supports: Markdown styling,
+# raw HTML (color, highlight, sub/superscript), naked URLs, Markdown-style
+# links, code spans, and LaTeX math. All rendered via marked + KaTeX +
+# DOMPurify — safe HTML passes through, everything else renders as Markdown.
+#
+# Links point to Wikipedia and open in a new tab automatically.
+
+# ── Bold / italic (Markdown) ─────────────────────────────────────────────────
+
+- question: |
+    The **Eiffel Tower** was completed in *1889* for the World's Fair in Paris.
+
+    Learn more: [Eiffel Tower – Wikipedia](https://en.wikipedia.org/wiki/Eiffel_Tower)
+
+    In which city is it located?
+  type: single
+  answers:
+    - "London"
+    - "Paris"
+    - "Berlin"
+    - "Rome"
+  correct: B
+  explanation: "The Eiffel Tower stands on the Champ de Mars in Paris, France."
+
+# ── Naked URL vs. Markdown link ───────────────────────────────────────────────
+
+- question: |
+    Marie Curie was the first person to win Nobel Prizes in two different
+    sciences (Physics and Chemistry).
+
+    Naked URL (auto-linked): https://en.wikipedia.org/wiki/Marie_Curie
+
+    Markdown link: [Marie Curie – Wikipedia](https://en.wikipedia.org/wiki/Marie_Curie)
+
+    Which two fields did she win her Nobel Prizes in?
+  type: multiple
+  answers:
+    - "Physics"
+    - "Chemistry"
+    - "Medicine"
+    - "Peace"
+  correct:
+    - A
+    - B
+  explanation: "Physics (1903, shared) and Chemistry (1911, sole) — still the only person to win in two different sciences."
+
+# ── Color and highlight (raw HTML) ────────────────────────────────────────────
+
+- question: |
+    On a traffic light, which color means "stop"?
+
+    <span style="color:red">**Red**</span> · <span style="color:orange">**Orange**</span> · <span style="color:green">**Green**</span>
+
+    <mark>Hint:</mark> think of the universal traffic signal convention described on
+    [Traffic light – Wikipedia](https://en.wikipedia.org/wiki/Traffic_light).
+  type: single
+  answers:
+    - "<span style=\"color:red\">Red</span>"
+    - "<span style=\"color:orange\">Orange</span>"
+    - "<span style=\"color:green\">Green</span>"
+  correct: A
+  explanation: "Red universally signals 'stop' in road traffic systems worldwide."
+
+# ── Sub/superscript, underline, strikethrough (raw HTML) ─────────────────────
+
+- question: |
+    Water has the chemical formula H<sub>2</sub>O, meaning each molecule has
+    2 hydrogen atoms and 1 oxygen atom.
+
+    <u>Underlined</u> and ~~strikethrough~~ text also render correctly.
+
+    What is the exponent shown in E = mc<sup>2</sup>, Einstein's mass–energy
+    equivalence formula? See [Mass–energy equivalence – Wikipedia](https://en.wikipedia.org/wiki/Mass%E2%80%93energy_equivalence).
+  type: single
+  answers:
+    - "1"
+    - "2"
+    - "3"
+    - "0"
+  correct: B
+  explanation: "E = mc² — the speed of light c is squared."
+
+# ── Code span + LaTeX math combined ───────────────────────────────────────────
+
+- question: |
+    The golden ratio $\varphi$ appears throughout art, architecture, and nature.
+
+    $$\varphi = \frac{1+\sqrt{5}}{2} \approx 1.618$$
+
+    In Python, you could approximate it with `(1 + 5 ** 0.5) / 2`.
+
+    Read more: https://en.wikipedia.org/wiki/Golden_ratio
+
+    Which value is closest to $\varphi$?
+  type: single
+  answers:
+    - "$1.618$"
+    - "$3.14$"
+    - "$2.718$"
+    - "$1.414$"
+  correct: A
+  explanation: "$\\varphi \\approx 1.618$, distinct from π (3.14), e (2.718), and √2 (1.414)."

@@ -281,3 +281,4 @@ QuiQui treats it as display-only: it does **not** create the shortlink or check 
 | `lecture5-sozialwissenschaften.yaml` | Sozialwissenschaften — Schichtung, Bürokratie, Forschungsmethoden (Deutsch) |
 | `lecture6-geschichte.yaml` | Geschichte — Weltkriege, Weimarer Republik, Französische Revolution (Deutsch) |
 | `generic.yaml` | Generic answer templates — A/B/C/D, Yes/No, True/False; use when your question text is in your slides |
+| `formatting-examples.yaml` | Showcase of supported text formatting — Markdown, raw HTML (color, highlight, sub/superscript), naked URLs, Markdown links, code, LaTeX |
