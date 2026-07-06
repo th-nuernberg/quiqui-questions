@@ -54,7 +54,7 @@
 - question: |
     On a traffic light, which color means "stop"?
 
-    <span style="color:red">**Red**</span> · <span style="color:darkyellow">**Yellow**</span> · <span style="color:green">**Green**</span>
+    <span style="color:red">**Red**</span> · <span style="color:yellow">**Yellow**</span> · <span style="color:green">**Green**</span>
 
     <mark>Hint:</mark> think of the universal traffic signal convention described on
     [Traffic light – Wikipedia](https://en.wikipedia.org/wiki/Traffic_light).
