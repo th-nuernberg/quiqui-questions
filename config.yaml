@@ -6,6 +6,10 @@
 # Generic names like "python101" or "demo" will conflict if two lecturers use the same name
 # at the same time. Include an organisation or course abbreviation to make it unique,
 # e.g. "tum-python101", "ki-zentrum-demo".
+#
+# Allowed characters: letters, digits, hyphen (-) and underscore (_), 1–64 characters.
+# No spaces, slashes, or dots — session_url becomes part of the join URL and QR code,
+# so an invalid value is rejected when you pull the repo (and would break the projector QR).
 session_url: demo
 
 # Optional: a custom shortlink students can type instead of the long /join/ URL.

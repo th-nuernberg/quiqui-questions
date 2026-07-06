@@ -246,6 +246,8 @@ title: Demo Quiz
 
 > **`session_url` must be unique across all users of the same QuiQui instance.** See [Choosing a `session_url`](#choosing-a-session_url) below — getting this wrong silently merges two lecturers' sessions.
 
+> **Allowed characters:** letters, digits, hyphen (`-`) and underscore (`_`), 1–64 characters. No spaces, slashes, or dots — the `session_url` becomes part of the join URL and the QR code, so an invalid value is rejected when you pull the repo (and would otherwise break the projector's QR code).
+
 ### Choosing a `session_url`
 
 A session is identified by its `session_url`, **not by the lecturer**. Everyone running with the same `session_url` on the same server at the same time shares **one** live session — the same active question, the same vote tally, the same results. Two lecturers who collide will silently overwrite each other's active question and mix their students' votes together. (The session only fails with an explicit conflict error in one narrow case: two *different* repos declaring the same `session_url` at the same time. Sharing the *same* repo gives no error at all — everyone just lands in one shared session.)
