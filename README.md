@@ -2,7 +2,8 @@
 
 Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a live audience response tool for lectures, meetings, and talks.
 
-Each `.yaml` file in this repo represents one set of questions. You would create one for each topic block, e.g. one per chapter of an academic course. Point QuiQui at this repo URL and select a file to load its questions.
+Each `.yaml` file in this repo represents one set of questions. Point QuiQui at this repo URL and select a file to load its questions. Fork this repo to build your own question deck.  
+See the [Quickstart Guide](https://github.com/th-nuernberg/quiqui/blob/main/QUICKSTART.md) for reference.
 
 > **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. Each question may have at most **6 answer options** (A–F). YAML files are validated on load — format errors are shown as a clear error message in the host view. A typical lecture file is well under 50 KB.
 
