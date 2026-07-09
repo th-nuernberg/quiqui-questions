@@ -2,7 +2,7 @@
 
 Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a live audience response tool for lectures, meetings, and talks.
 
-Each `.yaml` file in this repo represents one lecture's questions. Point QuiQui at this repo URL and select a file to load its questions.
+Each `.yaml` file in this repo represents one set of questions. You would create one for each topic block, e.g. one per chapter of an academic course. Point QuiQui at this repo URL and select a file to load its questions.
 
 > **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. Each question may have at most **6 answer options** (A–F). YAML files are validated on load — format errors are shown as a clear error message in the host view. A typical lecture file is well under 50 KB.
 
@@ -165,7 +165,7 @@ You are helping me write a question file for QuiQui, a live audience-response
 tool for lectures, meetings, and talks. Produce ONE valid YAML file following the exact
 format described below. Output only the YAML, inside a single code block, with
 no commentary before or after.
-I
+
 WHAT I WANT:
 - Topic: [FILL IN — e.g. "Python basics: variables, loops, data types"]
 - Number of questions: [FILL IN — e.g. 8]
@@ -222,7 +222,7 @@ EXAMPLE of a valid scored question:
 Now generate the file for the topic and settings above.
 ````
 
-Save the assistant's output as `your-lecture-name.yaml`, commit it to your fork of this repo, and load it in QuiQui by selecting the file after pulling the repo. If QuiQui reports a validation error in the host view, paste the error back to the assistant and ask it to fix the file.
+Save the assistant's output as `your-lesson-name.yaml`, commit it to your fork of this repo, and load it in QuiQui by selecting the file after pulling the repo. If QuiQui reports a validation error in the host view, paste the error back to the assistant and ask it to fix the file.
 
 ---
 
@@ -232,7 +232,8 @@ An optional `config.yaml` at the root of the repo configures the session:
 
 ```yaml
 # Stable URL segment for the participant join link: /join/<session_url>
-# Participants can bookmark this — it stays the same across all questions in a lecture.
+# Participants can bookmark this — it stays the same across all questions
+# for a given question repository.
 # If omitted, a random short ID is generated each time a question is activated.
 session_url: demo
 
@@ -281,11 +282,11 @@ QuiQui treats it as display-only: it does **not** create the shortlink or check 
 | File | Topic |
 |---|---|
 | `config.yaml` | configures title and url slug |
-| `lecture1-python-basics.yaml` | Python basics — variables, types, loops |
-| `lecture2-python-maths.yaml` | Python for maths — NumPy, float precision, recursion |
-| `lecture3-maths.yaml` | Linear algebra and statistics — eigenvectors, normal distribution, correlation |
-| `lecture4-economics.yaml` | Microeconomics — demand, market equilibrium, elasticity (English) |
-| `lecture5-sozialwissenschaften.yaml` | Sozialwissenschaften — Schichtung, Bürokratie, Forschungsmethoden (Deutsch) |
-| `lecture6-geschichte.yaml` | Geschichte — Weltkriege, Weimarer Republik, Französische Revolution (Deutsch) |
+| `lesson1-python-basics.yaml` | Python basics — variables, types, loops |
+| `lesson2-python-maths.yaml` | Python for maths — NumPy, float precision, recursion |
+| `lesson3-maths.yaml` | Linear algebra and statistics — eigenvectors, normal distribution, correlation |
+| `lesson4-economics.yaml` | Microeconomics — demand, market equilibrium, elasticity (English) |
+| `lesson5-sozialwissenschaften.yaml` | Sozialwissenschaften — Schichtung, Bürokratie, Forschungsmethoden (Deutsch) |
+| `lesson6-geschichte.yaml` | Geschichte — Weltkriege, Weimarer Republik, Französische Revolution (Deutsch) |
 | `generic.yaml` | Generic answer templates — A/B/C/D, Yes/No, True/False; use when your question text is in your slides |
 | `formatting-examples.yaml` | Showcase of supported text formatting — Markdown, raw HTML (color, highlight, sub/superscript), naked URLs, Markdown links, code, LaTeX |
