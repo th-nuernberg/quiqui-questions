@@ -4,7 +4,7 @@ Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a li
 
 Each `.yaml` file in this repo represents one lecture's questions. Point QuiQui at this repo URL and select a file to load its questions.
 
-> **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. Each question may have at most **6 answer options** (A–F). YAML files are validated on load — format errors are shown as a clear error message in the teacher view. A typical lecture file is well under 50 KB.
+> **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. Each question may have at most **6 answer options** (A–F). YAML files are validated on load — format errors are shown as a clear error message in the host view. A typical lecture file is well under 50 KB.
 
 ---
 
@@ -17,10 +17,10 @@ Each question is a YAML list item with the following fields:
 | `question` | yes | Question text — plain text, Markdown, or LaTeX |
 | `type` | yes | `single` (one answer) or `multiple` (one or more) |
 | `answers` | yes | List of answer options |
-| `correct` | no | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; teacher-only, never shown to students. Omit for unscored/generic questions. |
-| `explanation` | no | Optional explanation shown only to the teacher |
+| `correct` | no | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; host-only, never shown to participants. Omit for unscored/generic questions. |
+| `explanation` | no | Optional explanation shown only to the host |
 
-The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the teacher's **✓ Reveal** button to highlight the correct options for the whole room. When `correct` is omitted, the Reveal button is hidden — useful when you keep the question text in your slides and only use QuiQui to collect votes.
+The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the host's **✓ Reveal** button to highlight the correct options for the whole room. When `correct` is omitted, the Reveal button is hidden — useful when you keep the question text in your slides and only use QuiQui to collect votes.
 
 For a single correct answer, use a bare letter. For multiple correct answers, use a block sequence.
 
@@ -113,7 +113,7 @@ Code and math can be combined freely in the same question.
 
 ### Generic / unscored questions
 
-Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically. Each answer option is labelled with a letter badge (A, B, C, …) — students pick the letter shown on the slide.
+Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically. Each answer option is labelled with a letter badge (A, B, C, …) — participants pick the letter shown on the slide.
 
 `generic.yaml` contains ready-to-use templates. Examples:
 
@@ -189,7 +189,7 @@ YAML FORMAT (follow exactly):
           - A
           - C
   - explanation: (OPTIONAL) a one- or two-sentence explanation. Shown only to
-    the teacher, never to students. Include it for scored questions.
+    the host, never to participants. Include it for scored questions.
 
 FORMATTING RULES:
 - Markdown is allowed in question text and answers: use backticks for `code`,
@@ -222,7 +222,7 @@ EXAMPLE of a valid scored question:
 Now generate the file for the topic and settings above.
 ````
 
-Save the assistant's output as `your-lecture-name.yaml`, commit it to your fork of this repo, and load it in QuiQui by selecting the file after pulling the repo. If QuiQui reports a validation error in the teacher view, paste the error back to the assistant and ask it to fix the file.
+Save the assistant's output as `your-lecture-name.yaml`, commit it to your fork of this repo, and load it in QuiQui by selecting the file after pulling the repo. If QuiQui reports a validation error in the host view, paste the error back to the assistant and ask it to fix the file.
 
 ---
 
@@ -231,16 +231,17 @@ Save the assistant's output as `your-lecture-name.yaml`, commit it to your fork 
 An optional `config.yaml` at the root of the repo configures the session:
 
 ```yaml
-# Stable URL segment for the student join link: /join/<session_url>
-# Students can bookmark this — it stays the same across all questions in a lecture.
+# Stable URL segment for the participant join link: /join/<session_url>
+# Participants can bookmark this — it stays the same across all questions in a lecture.
 # If omitted, a random short ID is generated each time a question is activated.
 session_url: demo
 
-# Optional: a custom shortlink students can type instead of the long /join/ URL.
-# student_shortlink: https://t.ly/your-code
+# Optional: a custom shortlink participants can type instead of the long /join/ URL.
+# (QuiQui also still reads the older key `student_shortlink` as a fallback.)
+# host_shortlink: https://t.ly/your-code
 
 # Display name shown in the header and browser tab as "QuiQui: <title>"
-# Appears on both teacher and student views.
+# Appears on both host and participant views.
 title: Demo Quiz
 ```
 
@@ -250,7 +251,7 @@ title: Demo Quiz
 
 ### Choosing a `session_url`
 
-A session is identified by its `session_url`, **not by the lecturer**. Everyone running with the same `session_url` on the same server at the same time shares **one** live session — the same active question, the same vote tally, the same results. Two lecturers who collide will silently overwrite each other's active question and mix their students' votes together. (The session only fails with an explicit conflict error in one narrow case: two *different* repos declaring the same `session_url` at the same time. Sharing the *same* repo gives no error at all — everyone just lands in one shared session.)
+A session is identified by its `session_url`, **not by the lecturer**. Everyone running with the same `session_url` on the same server at the same time shares **one** live session — the same active question, the same vote tally, the same results. Two lecturers who collide will silently overwrite each other's active question and mix their participants' votes together. (The session only fails with an explicit conflict error in one narrow case: two *different* repos declaring the same `session_url` at the same time. Sharing the *same* repo gives no error at all — everyone just lands in one shared session.)
 
 This is easy to get wrong, because the natural choice is a generic abbreviation of the lecture — `databases`, `programming`, `nlp`. **These are exactly the names most likely to collide**, because another lecturer teaching the same subject will reach for the same word. The same trap applies if you and colleagues share one question repo: you all inherit its single `session_url`.
 
@@ -267,9 +268,9 @@ The `session_url` only needs to be unique among sessions running **at the same t
 
 > If you and colleagues want to run the **same demo** simultaneously, each of you must fork this repo and give your fork a unique `session_url`.
 
-### Optional: `student_shortlink`
+### Optional: `host_shortlink`
 
-The student join URL (`/join/<session_url>`) can be long and awkward to type. If you set up a shortlink on any URL shortener (e.g. [t.ly](https://t.ly), bit.ly, or your institution's own service) and point it at your join URL, add it as `student_shortlink` and QuiQui will show it in the teacher view (below the student link) and on the projector view in place of the long join URL — handy to read out or put on a slide. The QR code still encodes the real join URL, so scanning always works.
+The participant join URL (`/join/<session_url>`) can be long and awkward to type. If you set up a shortlink on any URL shortener (e.g. [t.ly](https://t.ly), bit.ly, or your institution's own service) and point it at your join URL, add it as `host_shortlink` and QuiQui will show it in the host view (below the participant link) and on the projector view in place of the long join URL — handy to read out or put on a slide. The QR code still encodes the real join URL, so scanning always works. (QuiQui also still reads the older key `student_shortlink` as a fallback, for repos written before this field was renamed.)
 
 QuiQui treats it as display-only: it does **not** create the shortlink or check where it points, so make sure your shortener actually redirects to `<your-quiqui-host>/join/<session_url>`.
 

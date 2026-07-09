@@ -1,5 +1,5 @@
-# Stable URL segment for the student join link: /join/<session_url>
-# Students can bookmark this — it stays the same across all questions in a lecture.
+# Stable URL segment for the participant join link: /join/<session_url>
+# Participants can bookmark this — it stays the same across all questions in a lecture.
 # If omitted, a random short ID is generated each time a question is activated.
 #
 # IMPORTANT: session_url must be unique across all users of the same QuiQui instance.
@@ -12,9 +12,10 @@
 # so an invalid value is rejected when you pull the repo (and would break the projector QR).
 session_url: demo
 
-# Optional: a custom shortlink students can type instead of the long /join/ URL.
-# student_shortlink: https://t.ly/your-code
+# Optional: a custom shortlink participants can type instead of the long /join/ URL.
+# (QuiQui also still reads the older key `student_shortlink` as a fallback.)
+# host_shortlink: https://t.ly/your-code
 
 # Display name shown in the header and browser tab as "QuiQui: <title>"
-# Appears on both teacher and student views.
+# Appears on both host and participant views.
 title: Demo Quiz
