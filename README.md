@@ -1,6 +1,6 @@
-# Demo questions for QuiQui - the completely free and open interactive lecture quiz tool
+# Demo questions for QuiQui - the completely free and open live audience response tool
 
-Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a live audience response tool for university lectures.
+Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a live audience response tool for lectures, meetings, and talks.
 
 Each `.yaml` file in this repo represents one lecture's questions. Point QuiQui at this repo URL and select a file to load its questions.
 
@@ -162,7 +162,7 @@ Copy the prompt below into ChatGPT, Claude, or any other LLM and fill in the bra
 
 ````text
 You are helping me write a question file for QuiQui, a live audience-response
-tool for university lectures. Produce ONE valid YAML file following the exact
+tool for lectures, meetings, and talks. Produce ONE valid YAML file following the exact
 format described below. Output only the YAML, inside a single code block, with
 no commentary before or after.
 I
