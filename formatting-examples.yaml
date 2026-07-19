@@ -55,12 +55,13 @@
 # serves it from the pulled clone, so the question repo is fully self-contained.
 
 - question: |
-    This image is loaded from **this repository** (`images/traffic-light.svg`),
+    Which lamp on the traffic light is lit?
+
+    This demonstrates an image is loaded from **this repository** (`images/traffic-light.svg`),
     not an external URL:
 
     ![Traffic light with the green lamp lit](images/traffic-light.svg)
 
-    Which lamp is lit?
   type: single
   answers:
     - "Red"

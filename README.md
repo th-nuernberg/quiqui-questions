@@ -127,6 +127,8 @@ Include an image in a question (or answer) with standard Markdown image syntax, 
 
 The image is fetched from that URL at display time, so it only works while that host keeps it online.
 
+Linking to the original source (e.g. Wikimedia Commons) is the best option **for anything you don't hold the rights to**.
+
 **2. A file shipped in this repo** — commit the image alongside your YAML and reference it with a **repo-relative path**. QuiQui serves it from the pulled clone, so the question repo is fully self-contained — nothing depends on external hosting:
 
 ```yaml
@@ -144,12 +146,7 @@ Here `images/traffic-light.svg` is a file in this repo (see the `images/` folder
 - **Supported formats:** `.png`, `.jpg`/`.jpeg`, `.gif`, `.webp`, `.avif`, `.svg`.
 - **Size:** each image must be under **512 KB**, and the whole repo (images included) under **1 MB** — keep figures at slide resolution, not full-camera size.
 - Only image files are served this way; other files in the repo are not web-accessible.
-
-**Which to use — mind copyright.** This repo is public. Committing an image to it publishes and redistributes that file, which is a different (and legally heavier) act than merely linking to where someone else already hosts it.
-
-- Use a **local file (option 2)** only for material you made yourself or that's under a license permitting redistribution (CC0, CC-BY, public domain, etc.) — note the license/source in a comment near the image or question, as `images/traffic-light.svg` does.
-- Use an **external URL (option 1)** for anything you don't hold the rights to — book figures, photos, diagrams pulled from a slide deck, stock images. Linking to the original host (e.g. Wikimedia Commons) is not redistribution; committing that same file to this repo would be.
-- When in doubt, link, don't commit.
+- **Mind copyright:** Publish only images produced by yourself or with a permissive license this way.
 
 ### More formatting examples
 
