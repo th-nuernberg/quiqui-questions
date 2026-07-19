@@ -20,6 +20,7 @@ Each question is a YAML list item with the following fields:
 | `answers` | yes | List of answer options |
 | `correct` | no | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; host-only, never shown to participants. Omit for unscored/generic questions. |
 | `explanation` | no | Optional explanation shown only to the host |
+| `shuffle` | no | Set `false` to keep this question's answers in a fixed order when `shuffle: true` is set in `config.yaml` (see [Optional: `shuffle`](#optional-shuffle)) |
 
 The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the host's **✓ Reveal** button to highlight the correct options for the whole room. When `correct` is omitted, the Reveal button is hidden — useful when you keep the question text in your slides and only use QuiQui to collect votes.
 
@@ -242,6 +243,9 @@ session_url: demo
 # (QuiQui also still reads the older key `student_shortlink` as a fallback.)
 # host_shortlink: https://t.ly/your-code
 
+# Optional: randomise each question's answer order (default false). See below.
+# shuffle: true
+
 # Display name shown in the header and browser tab as "QuiQui: <title>"
 # Appears on both host and participant views.
 title: Demo Quiz
@@ -276,6 +280,10 @@ The participant join URL (`/join/<session_url>`) can be long and awkward to type
 
 QuiQui treats it as display-only: it does **not** create the shortlink or check where it points, so make sure your shortener actually redirects to `<your-quiqui-host>/join/<session_url>`.
 
+### Optional: `shuffle`
+
+Set `shuffle: true` to randomise each question's answer order (default `false`). A single question can opt out with `shuffle: false` on that question. See [`about-quiqui.yaml`](about-quiqui.yaml) for a live demo.
+
 ---
 
 ## Files in this repo
@@ -283,6 +291,7 @@ QuiQui treats it as display-only: it does **not** create the shortlink or check 
 | File | Topic |
 |---|---|
 | `config.yaml` | configures title and url slug |
+| `about-quiqui.yaml` | Questions about QuiQui itself — also a live demo of the `shuffle` option |
 | `lesson1-python-basics.yaml` | Python basics — variables, types, loops |
 | `lesson2-python-maths.yaml` | Python for maths — NumPy, float precision, recursion |
 | `lesson3-maths.yaml` | Linear algebra and statistics — eigenvectors, normal distribution, correlation |

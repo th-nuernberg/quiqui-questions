@@ -1,0 +1,60 @@
+# About QuiQui — a self-referential demo deck.
+#
+# The questions below ask about QuiQui's own configuration. The question about
+# shuffling sets `shuffle: true` on itself, so its answers are reordered every
+# session even when the repo default is off — a live demonstration of the very
+# feature it asks about. Set `shuffle: true` in config.yaml to shuffle the whole
+# deck and watch the "always pick A" strategy stop working.
+
+- question: |
+    In QuiQui, **where** do a lecture's questions come from?
+  type: single
+  answers:
+    - "A public GitHub repository the host points QuiQui at"
+    - "A database the host logs into"
+    - "A file uploaded through the host's browser"
+    - "They are typed live into the host view"
+  correct: A
+  explanation: "QuiQui has no database and no login — questions live in a public GitHub repo of `.yaml` files (like this one). The host loads them by URL; there is nothing to upload."
+
+- question: |
+    QuiQui supports shuffling answers by setting `shuffle: true`.
+    At which granularity can this be set?
+  type: multiple
+  answers:
+    - "For the whole repository (in `config.yaml`)"
+    - "For a whole question file"
+    - "For each single question"
+  correct:
+    - A
+    - C
+  # This question sets shuffle: true on itself, so its own answers are reordered
+  # every session — a live demonstration of the very feature it asks about.
+  shuffle: true
+  explanation: "`shuffle: true` in `config.yaml` turns shuffling on for the whole repository; an individual question can then override it with its own `shuffle: false` (or `true`). There is no per-file granularity — this very question sets `shuffle: true` on itself, so its answers reorder each session."
+
+- question: |
+    Which of these are true about how QuiQui runs a session?
+  type: multiple
+  answers:
+    - "Participants join by scanning a QR code or opening a link"
+    - "The room sees results as a live bar chart"
+    - "Participants need to create an account first"
+    - "Results are saved permanently to a database"
+    - "The host can reveal the correct answer at any time"
+  correct:
+    - A
+    - B
+    - E
+  explanation: "No accounts, no persistence — QuiQui is deliberately minimal. Participants just scan/click to join, everyone watches live bars, and the host reveals correct answers whenever they choose. Nothing is stored after the session ends."
+
+- question: |
+    What makes a good `session_url` in `config.yaml`?
+  type: single
+  answers:
+    - "Something unmistakably yours, e.g. `thn-db-alb`"
+    - "A short generic word like `demo` or `databases`"
+    - "A long random string only you know"
+    - "It doesn't matter — QuiQui assigns one automatically"
+  correct: A
+  explanation: "`session_url` is the join address and must be globally unique on the server. Generic names collide when two lecturers reuse them at once, mixing everyone's votes into one session. Prefix it with your org or course (e.g. `thn-db-alb`) to keep it yours."

@@ -16,6 +16,12 @@ session_url: demo
 # (QuiQui also still reads the older key `student_shortlink` as a fallback.)
 # host_shortlink: https://t.ly/your-code
 
+# Optional: randomise the order of each question's answers.
+# When true, every question's answers are shuffled whenever you load a question set.
+# Global default is false and could be changed here.
+# Can be set for any question individually.
+shuffle: false
+
 # Display name shown in the header and browser tab as "QuiQui: <title>"
 # Appears on both host and participant views.
 title: Demo Quiz
