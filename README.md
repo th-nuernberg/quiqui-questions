@@ -109,9 +109,51 @@ Use `$...$` for inline math and `$$...$$` for a centred display block. Both work
 
 Code and math can be combined freely in the same question.
 
+### Images
+
+Include an image in a question (or answer) with standard Markdown image syntax, `![alt text](source)`. There are two ways to provide the source:
+
+**1. An external URL** — link to an image hosted elsewhere (Wikimedia, your website, a CDN):
+
+```yaml
+- question: |
+    Where is this landmark?
+
+    ![Eiffel Tower](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg/500px-Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg)
+  type: single
+  answers: ["London", "Paris", "Berlin"]
+  correct: B
+```
+
+The image is fetched from that URL at display time, so it only works while that host keeps it online.
+
+**2. A file shipped in this repo** — commit the image alongside your YAML and reference it with a **repo-relative path**. QuiQui serves it from the pulled clone, so the question repo is fully self-contained — nothing depends on external hosting:
+
+```yaml
+- question: |
+    Which lamp is lit?
+
+    ![Traffic light](images/traffic-light.svg)
+  type: single
+  answers: ["Red", "Yellow", "Green"]
+  correct: C
+```
+
+Here `images/traffic-light.svg` is a file in this repo (see the `images/` folder). Any relative path resolves against the repo root — put images wherever you like (`images/`, `figures/…`) and reference them accordingly. A leading `./` is fine too.
+
+- **Supported formats:** `.png`, `.jpg`/`.jpeg`, `.gif`, `.webp`, `.avif`, `.svg`.
+- **Size:** each image must be under **512 KB**, and the whole repo (images included) under **1 MB** — keep figures at slide resolution, not full-camera size.
+- Only image files are served this way; other files in the repo are not web-accessible.
+
+**Which to use — mind copyright.** This repo is public. Committing an image to it publishes and redistributes that file, which is a different (and legally heavier) act than merely linking to where someone else already hosts it.
+
+- Use a **local file (option 2)** only for material you made yourself or that's under a license permitting redistribution (CC0, CC-BY, public domain, etc.) — note the license/source in a comment near the image or question, as `images/traffic-light.svg` does.
+- Use an **external URL (option 1)** for anything you don't hold the rights to — book figures, photos, diagrams pulled from a slide deck, stock images. Linking to the original host (e.g. Wikimedia Commons) is not redistribution; committing that same file to this repo would be.
+- When in doubt, link, don't commit.
+
 ### More formatting examples
 
-`formatting-examples.yaml` has runnable examples of the formatting options above plus a few more: naked URLs, Markdown-style links, inline images (`![alt](url)`), and raw HTML such as colored text, highlights, and sub/superscript. It doesn't cover every possible case — tables and blockquotes, for instance, also render fine (Markdown via `marked`, sanitised by DOMPurify) but aren't demonstrated yet. Feel free to extend the file with more examples as new formatting needs come up.
+`formatting-examples.yaml` has runnable examples of the formatting options above plus a few more: naked URLs, Markdown-style links, images (both an external URL and a local `images/traffic-light.svg` from this repo), and raw HTML such as colored text, highlights, and sub/superscript. It doesn't cover every possible case — tables and blockquotes, for instance, also render fine (Markdown via `marked`, sanitised by DOMPurify) but aren't demonstrated yet. Feel free to extend the file with more examples as new formatting needs come up.
 
 ### Generic / unscored questions
 
@@ -196,6 +238,9 @@ YAML FORMAT (follow exactly):
 FORMATTING RULES:
 - Markdown is allowed in question text and answers: use backticks for `code`,
   **bold**, etc.
+- Images use Markdown syntax ![alt](source). The source can be an external URL,
+  or a path to an image file shipped in the repo, e.g. ![](images/figure.svg).
+  Only add an image if I ask for one — do not invent image files that don't exist.
 - LaTeX maths is allowed: $...$ for inline, $$...$$ for a centred display block.
 - For multi-line question text (fenced code blocks, display maths), use a YAML
   block scalar with the pipe character:

@@ -49,6 +49,19 @@
   explanation: "No accounts, no persistence — QuiQui is deliberately minimal. Participants just scan/click to join, everyone watches live bars, and the host reveals correct answers whenever they choose. Nothing is stored after the session ends."
 
 - question: |
+    A question can show an image. **Which ways of including one does QuiQui support?**
+  type: multiple
+  answers:
+    - "An external image URL, e.g. `![](https://example.org/figure.png)`"
+    - "A file shipped in the question repo, e.g. `![](images/figure.svg)`"
+    - "Uploading the image through the host's browser"
+    - "Pasting the image straight into the answer field during the session"
+  correct:
+    - A
+    - B
+  explanation: "Two ways, both written as Markdown `![alt](…)`: an external URL, or a repo-relative path to a file shipped alongside the YAML (QuiQui serves it from the pulled clone — the traffic-light example in `formatting-examples.yaml` does exactly this). There is no upload and no live paste — like everything else, images come from the GitHub repo."
+
+- question: |
     What makes a good `session_url` in `config.yaml`?
   type: single
   answers:

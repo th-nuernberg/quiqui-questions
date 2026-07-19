@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="300" viewBox="0 0 120 300" role="img" aria-label="A traffic light with red, yellow and green lamps; the green lamp is lit">
+  <title>Traffic light (green lit)</title>
+  <!-- Original artwork, CC0 / public domain — created for the QuiQui demo repo. -->
+  <rect x="30" y="10" width="60" height="180" rx="12" fill="#2b2b2b" stroke="#000" stroke-width="2"/>
+  <rect x="52" y="190" width="16" height="100" fill="#2b2b2b"/>
+  <circle cx="60" cy="50"  r="20" fill="#7a1f1f"/>
+  <circle cx="60" cy="100" r="20" fill="#7a6a1f"/>
+  <circle cx="60" cy="150" r="20" fill="#2ecc40"/>
+</svg>

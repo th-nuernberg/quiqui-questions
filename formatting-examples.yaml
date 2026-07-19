@@ -49,6 +49,26 @@
   correct: B
   explanation: "The Eiffel Tower stands on the Champ de Mars in Paris, France."
 
+# ── Local image shipped in this repo ──────────────────────────────────────────
+# The image above is loaded from an external URL. This one lives *in this repo*
+# (images/traffic-light.svg) and is referenced with a repo-relative path — QuiQui
+# serves it from the pulled clone, so the question repo is fully self-contained.
+
+- question: |
+    This image is loaded from **this repository** (`images/traffic-light.svg`),
+    not an external URL:
+
+    ![Traffic light with the green lamp lit](images/traffic-light.svg)
+
+    Which lamp is lit?
+  type: single
+  answers:
+    - "Red"
+    - "Yellow"
+    - "Green"
+  correct: C
+  explanation: "The green lamp is lit — go. The image is shipped in the repo under `images/` and referenced with a repo-relative Markdown path, so nothing depends on external hosting."
+
 # ── Color and highlight (raw HTML) ────────────────────────────────────────────
 
 - question: |
