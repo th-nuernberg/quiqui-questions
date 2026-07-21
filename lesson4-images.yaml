@@ -1,0 +1,52 @@
+# Lesson 4 — Images in questions.
+#
+# Three ways to bring an image into a question, each shown below. Images use
+# Markdown syntax `![alt](src)` in the question or answer text.
+
+- question: |
+    **Strategy 1 — external URL.** This image loads from Wikimedia:
+
+    ![Eiffel Tower](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg/320px-Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg)
+
+    In which city does it stand?
+  type: single
+  answers:
+    - "London"
+    - "Rome"
+    - "Paris"
+  correct: C
+  explanation: "An `https://` image URL works from any source — repo *or* self-contained file. It's the only image option a self-contained file has, since there is no repo behind it to serve local files."
+
+- question: |
+    **Strategy 2 — a file shipped in this repo.** This only works with a 
+    question repository on github, not with a self-contained question file.
+
+    The following one lives at
+    `images/traffic-light.svg` and is referenced with a repo-relative path:
+
+    ![Traffic light, green lit](images/traffic-light.svg)
+
+    Which lamp is lit?
+  type: single
+  answers:
+    - "Red"
+    - "Yellow"
+    - "Green"
+  correct: C
+  explanation: "A repo-relative path (`images/…`) is served from the pulled clone, so the repo stays self-contained with no external hosting. This works only for repo-loaded questions — not self-contained files."
+
+- question: |
+    **Strategy 3 — don't embed at all.** Often the cleanest option is to show
+    the figure on your **lecture slide** and keep QuiQui just for the vote.
+    Why is that frequently best?
+  type: multiple
+  answers:
+    - "It stops QuiQui from working"
+    - "Your slide can show it far larger than a phone screen"
+    - "No image size limit or hosting to worry about"
+    - "Participants keep their eyes on the room, not their phones"
+  correct:
+    - B
+    - C
+    - D
+  explanation: "Big figures belong on the beamer, not a phone. Show the image on your slide and let the QuiQui question just carry the answer options — see `lesson5-generic-templates.yaml` for `correct`-free templates built exactly for that."

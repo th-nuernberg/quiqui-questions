@@ -1,0 +1,48 @@
+# Lesson 5 — Templates for questions with no right answer.
+#
+# When the question lives on your slide and you only want a live vote, omit the
+# `correct` field. QuiQui then collects votes and shows the bar chart, but the
+# Reveal button is hidden — there is nothing to mark green.
+
+# ── Single choice: A / B / C / D ─────────────────────────────────────────────
+- question: "Choose your answer! (A, B, C, D)"
+  type: single
+  answers:
+    - "... (put your option on the slide)"
+    - "... (put your option on the slide)"
+    - "... (put your option on the slide)"
+    - "... (put your option on the slide)"
+
+# ── Multiple choice: A – E ───────────────────────────────────────────────────
+- question: "Choose one or more answers! (A – E)"
+  type: multiple
+  answers:
+    - "..."
+    - "..."
+    - "..."
+    - "..."
+    - "..."
+
+# ── Yes / No ─────────────────────────────────────────────────────────────────
+- question: "What do you think? (Yes / No)"
+  type: single
+  answers:
+    - "Yes"
+    - "No"
+
+# ── True / False ─────────────────────────────────────────────────────────────
+- question: "Is the statement on the slide true or false?"
+  type: single
+  answers:
+    - "True"
+    - "False"
+
+# ── Agreement scale ──────────────────────────────────────────────────────────
+- question: "What is your rating?"
+  type: single
+  answers:
+    - "Strongly agree"
+    - "Agree"
+    - "Neutral"
+    - "Disagree"
+    - "Strongly disagree"

@@ -1,0 +1,62 @@
+# Lektion 7 — Beispielfragen auf Deutsch.
+#
+# Zeigt, dass Fragen in beliebiger Sprache und aus jedem Fachgebiet
+# funktionieren — hier Sozialwissenschaft, Wirtschaft, Geschichte und Physik
+# (mit Formel). Markdown, LaTeX und Umlaute werden normal dargestellt.
+
+# ── Sozialwissenschaft ───────────────────────────────────────────────────────
+- question: |
+    Wer prägte den Begriff der **„protestantischen Ethik"** als Triebfeder des
+    modernen Kapitalismus?
+  type: single
+  answers:
+    - "Karl Marx"
+    - "Émile Durkheim"
+    - "Max Weber"
+    - "Auguste Comte"
+  correct: C
+  explanation: "Max Weber, in *Die protestantische Ethik und der Geist des Kapitalismus* (1904/05)."
+
+# ── Wirtschaft ───────────────────────────────────────────────────────────────
+- question: |
+    Was beschreibt in der Volkswirtschaftslehre das **Bruttoinlandsprodukt
+    (BIP)**?
+  type: single
+  answers:
+    - "Das Vermögen aller Privathaushalte"
+    - "Den Wert aller im Inland produzierten Waren und Dienstleistungen"
+    - "Die Staatsschulden eines Landes"
+    - "Die Zahl der Erwerbstätigen"
+  correct: B
+  explanation: "Das BIP misst den Marktwert aller innerhalb eines Jahres im Inland erzeugten Waren und Dienstleistungen."
+
+# ── Geschichte ───────────────────────────────────────────────────────────────
+- question: |
+    In welchem Jahr fiel die **Berliner Mauer**?
+
+    ![Menschen am Brandenburger Tor beim Mauerfall](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg/500px-West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg)
+  type: single
+  answers:
+    - "1961"
+    - "1989"
+    - "1990"
+    - "1991"
+  correct: B
+  explanation: "Die Mauer fiel am 9. November 1989; die deutsche Wiedervereinigung folgte am 3. Oktober 1990."
+
+# ── Physik (mit Formel) ──────────────────────────────────────────────────────
+- question: |
+    Das **zweite Newtonsche Gesetz** lautet:
+
+    $$F = m \cdot a$$
+
+    Wie ändert sich die Beschleunigung $a$, wenn bei gleicher Kraft $F$ die
+    Masse $m$ **verdoppelt** wird?
+  type: single
+  answers:
+    - "Sie verdoppelt sich"
+    - "Sie bleibt gleich"
+    - "Sie halbiert sich"
+    - "Sie vervierfacht sich"
+  correct: C
+  explanation: "Aus $a = F/m$ folgt: doppelte Masse bei gleicher Kraft ergibt die halbe Beschleunigung."

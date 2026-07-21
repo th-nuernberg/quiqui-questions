@@ -1,0 +1,50 @@
+# Lesson 6 — Running your own QuiQui instance.
+#
+# For the admin who self-hosts, not the lecturer writing questions. Plain
+# factual questions with links to the docs. Full detail:
+# https://github.com/th-nuernberg/quiqui#installation
+
+- question: |
+    QuiQui is open-source and free to run. **Which of these are real ways to
+    get an instance?**
+  type: multiple
+  answers:
+    - "Buy a licence from an app store"
+    - "Use the free [hosted service](https://github.com/th-nuernberg/quiqui#hosted-service) — nothing to install"
+    - "Run the [prebuilt Docker image](https://github.com/th-nuernberg/quiqui#run-with-docker) (`ghcr.io/th-nuernberg/quiqui`)"
+    - "[Install from Git](https://github.com/th-nuernberg/quiqui#installation) with Node.js (`git clone` + `npm install`)"
+  correct:
+    - B
+    - C
+    - D
+  explanation: "Three ways, all free: the hosted instance (just ask for the host URL), the prebuilt Docker image (`docker run … ghcr.io/th-nuernberg/quiqui`), or a Git checkout run with Node.js. No licence, no app store — it's AGPL-3.0."
+
+- question: |
+    You self-host and set options in a **`.env` file**
+    ([`.env.example`](https://github.com/th-nuernberg/quiqui/blob/main/.env.example)
+    lists them all). Which of these can you configure there?
+  type: multiple
+  answers:
+    - "`HOST_SLUG` — the secret path segment protecting the host page"
+    - "`PORT` — the port to listen on"
+    - "`SESSION_TIMEOUT_MINUTES` — how long an idle session lives"
+    - "The correct answers to your questions"
+  correct:
+    - A
+    - B
+    - C
+  explanation: "`.env` holds deployment settings — `HOST_SLUG` (your host-page secret), `PORT`, `SESSION_TIMEOUT_MINUTES`, size limits, `BASE_PATH` for a reverse-proxy subpath, and the Impressum fields. Question content never lives there — it comes from your YAML files. See [`.env.example`](https://github.com/th-nuernberg/quiqui/blob/main/.env.example)."
+
+- question: |
+    QuiQui has no accounts. The host page is protected only by its secret slug,
+    `HOST_SLUG`. What follows from that? See the
+    [security model](https://github.com/th-nuernberg/quiqui#security-model).
+  type: single
+  answers:
+    - "Each lecturer gets their own login and password"
+    - "Anyone who knows the host URL can run sessions — so keep it secret and hard to guess"
+    - "Participant votes are end-to-end encrypted"
+    - "The host page is open to everyone, with no protection at all"
+  correct: B
+  explanation: "`HOST_SLUG` is one shared secret for the whole instance, not per-user login. Whoever knows the host URL can host — so pick something long and unguessable and share it only with your lecturers. It's a shared-secret model suited to a single trusted instance, not account-based access control."
+

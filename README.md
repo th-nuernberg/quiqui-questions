@@ -2,10 +2,47 @@
 
 Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a live audience response tool for lectures, meetings, and talks.
 
-Each `.yaml` file in this repo represents one set of questions. Point QuiQui at this repo URL and select a file to load its questions. Fork this repo to build your own question deck.  
-See the [Quickstart Guide](https://github.com/th-nuernberg/quiqui/blob/main/QUICKSTART.md) for reference.
+Each `.yaml` file is one set of questions. Load one **directly from your computer** (see below) or **point QuiQui at a public GitHub repo** like this one and select a file. Either way, the question format is identical — this README is the reference.  
+New here? Start with the [Quickstart Guide](https://github.com/th-nuernberg/quiqui/blob/main/QUICKSTART.md).
 
-> **Requirements:** the repo must be public and hosted on GitHub. QuiQui checks the repository size via the GitHub API before cloning — repos larger than **1 MB** are rejected. Individual question files larger than **100 KB** are rejected when loaded. Each question may have at most **6 answer options** (A–F). YAML files are validated on load — format errors are shown as a clear error message in the host view. A typical lecture file is well under 50 KB.
+> **Limits:** each question file must be under **100 KB**, with at most **6 answer options** (A–F) per question. YAML is validated on load — format errors show as a clear message in the host view. A typical lecture file is well under 50 KB. For the GitHub route, the repo must be **public** and under **1 MB** total (checked via the GitHub API before cloning).
+
+---
+
+## Files in this repo
+
+| File | Purpose |
+|---|---|
+| `lesson*.yaml` | A guided tour of QuiQui — load each one and run it. The questions themselves teach what QuiQui is, how to load and format questions, images, unscored templates, self-hosting, and a German mixed-topic set. |
+| `self-contained-example.yaml` | A self-contained file (own `config:` + `questions:`) — download it, edit it, load it via **From file**, no GitHub needed. Your starting template. |
+| `config.yaml` | Session config for this repo — `session_url`, `title`, `shuffle`. Documented inline. |
+| `images/` | Images referenced by repo-relative paths (see `lesson4-images.yaml`). |
+
+The `lesson*.yaml` files double as this repo's documentation: they walk through every feature by demonstrating it. Start with `lesson1-about-quiqui.yaml`.
+
+---
+
+## No GitHub? Use a self-contained file
+
+You don't need a GitHub account or this repo to try QuiQui: [`self-contained-example.yaml`](self-contained-example.yaml) is a single file with both the questions **and** its own `config:` section. Load it on the host page via "From file" — a session starts straight from your computer.
+
+**To download it:** right-click **[this direct link](https://raw.githubusercontent.com/th-nuernberg/quiqui-questions/main/self-contained-example.yaml)** → *Save link as…*. (Opening the file [in GitHub's normal view](self-contained-example.yaml) shows it but doesn't download it — you'd have to click through to the raw/download button there.)
+
+The same file also works the normal way: drop it into a repo like this one and select it from the file dropdown after pulling. In that case its `config:` section is ignored — the repo's own `config.yaml` leads — only the `questions:` are read.
+
+```yaml
+config:
+  session_url: example
+  title: "QuiQui Example (self-contained)"
+
+questions:
+  - question: "Which of these is the capital of France?"
+    type: single
+    answers: ["Lyon", "Marseille", "Paris", "Nice"]
+    correct: C
+```
+
+Local uploads can't resolve repo-relative images (there's no repo behind them) — use an external `https://` image URL if you need one.
 
 ---
 
@@ -20,7 +57,7 @@ Each question is a YAML list item with the following fields:
 | `answers` | yes | List of answer options |
 | `correct` | no | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; host-only, never shown to participants. Omit for unscored/generic questions. |
 | `explanation` | no | Optional explanation shown only to the host |
-| `shuffle` | no | Set `false` to keep this question's answers in a fixed order when `shuffle: true` is set in `config.yaml` (see [Optional: `shuffle`](#optional-shuffle)) |
+| `shuffle` | no | Override answer shuffling for this one question: `true` forces its answers to shuffle, `false` keeps them fixed — either way overriding the repo-wide `shuffle` in [`config.yaml`](config.yaml) |
 
 The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the host's **✓ Reveal** button to highlight the correct options for the whole room. When `correct` is omitted, the Reveal button is hidden — useful when you keep the question text in your slides and only use QuiQui to collect votes.
 
@@ -42,6 +79,8 @@ For a single correct answer, use a bare letter. For multiple correct answers, us
 
 ### Multiple choice
 
+Here with answers randomly shuffled.
+
 ```yaml
 - question: "Which of these are valid Python data types?"
   type: multiple
@@ -57,6 +96,7 @@ For a single correct answer, use a bare letter. For multiple correct answers, us
     - D
     - E
   explanation: "Python has no char type; single characters are strings of length 1."
+  shuffle: true
 ```
 
 ### Code blocks
@@ -150,13 +190,13 @@ Here `images/traffic-light.svg` is a file in this repo (see the `images/` folder
 
 ### More formatting examples
 
-`formatting-examples.yaml` has runnable examples of the formatting options above plus a few more: naked URLs, Markdown-style links, images (both an external URL and a local `images/traffic-light.svg` from this repo), and raw HTML such as colored text, highlights, and sub/superscript. It doesn't cover every possible case — tables and blockquotes, for instance, also render fine (Markdown via `marked`, sanitised by DOMPurify) but aren't demonstrated yet. Feel free to extend the file with more examples as new formatting needs come up.
+`lesson3-formatting.yaml` and `lesson4-images.yaml` have runnable examples of the formatting options above — Markdown, LaTeX, code blocks, raw HTML (colour, highlight, sub/superscript), and the two ways to include images. Load and run them to see each feature rendered. They don't cover every case — tables and blockquotes, for instance, also render fine (Markdown via `marked`, sanitised by DOMPurify) — so extend them as new needs come up.
 
 ### Generic / unscored questions
 
 Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically. Each answer option is labelled with a letter badge (A, B, C, …) — participants pick the letter shown on the slide.
 
-`generic.yaml` contains ready-to-use templates. Examples:
+`lesson5-generic-templates.yaml` contains ready-to-use templates. Examples:
 
 ```yaml
 # A–D single choice
@@ -266,79 +306,15 @@ EXAMPLE of a valid scored question:
 Now generate the file for the topic and settings above.
 ````
 
-Save the assistant's output as `your-lesson-name.yaml`, commit it to your fork of this repo, and load it in QuiQui by selecting the file after pulling the repo. If QuiQui reports a validation error in the host view, paste the error back to the assistant and ask it to fix the file.
+Save the assistant's output as a `.yaml` file and load it in QuiQui — either directly from your computer via **From file**, or by committing it to your repo and selecting it after pulling. If QuiQui reports a validation error in the host view, paste the error back to the assistant and ask it to fix the file.
+
+> **For a self-contained file** (loaded via **From file**, no repo): the prompt above produces a bare list of questions. Wrap it in a `config:` + `questions:` map — copy the `config:` block from [`self-contained-example.yaml`](self-contained-example.yaml), set your `session_url`, and paste the generated questions under `questions:`.
 
 ---
 
 ## config.yaml
 
-An optional `config.yaml` at the root of the repo configures the session:
+An optional `config.yaml` at the repo root configures the session — `session_url`, `title`, and the optional `host_shortlink` and `shuffle`. **Every field is documented inline in [`config.yaml`](config.yaml) itself** — open it and read the comments there; they're the authoritative reference.
 
-```yaml
-# Stable URL segment for the participant join link: /join/<session_url>
-# Participants can bookmark this — it stays the same across all questions
-# for a given question repository.
-# If omitted, a random short ID is generated each time a question is activated.
-session_url: demo
+The one field worth getting right is **`session_url`**, the participant join address (`/join/<session_url>`). A session is identified by its `session_url`, *not* by the lecturer: everyone running the same value on the same server at the same time lands in **one** shared session — same question, votes mixed together. QuiQui warns you before taking over a session that's already **live**, but the real fix is a value that's unmistakably yours. **Best practice — prefix with abbreviations that no one else would use.** Combine institution + course + lecturer (or any subset that makes it unmistakably yours), e.g. `thn-db-alb` rather than `databases`.
 
-# Optional: a custom shortlink participants can type instead of the long /join/ URL.
-# (QuiQui also still reads the older key `student_shortlink` as a fallback.)
-# host_shortlink: https://t.ly/your-code
-
-# Optional: randomise each question's answer order (default false). See below.
-# shuffle: true
-
-# Display name shown in the header and browser tab as "QuiQui: <title>"
-# Appears on both host and participant views.
-title: Demo Quiz
-```
-
-> **`session_url` must be unique across all users of the same QuiQui instance.** See [Choosing a `session_url`](#choosing-a-session_url) below — getting this wrong silently merges two lecturers' sessions.
-
-> **Allowed characters:** letters, digits, hyphen (`-`) and underscore (`_`), 1–64 characters. No spaces, slashes, or dots — the `session_url` becomes part of the join URL and the QR code, so an invalid value is rejected when you pull the repo (and would otherwise break the projector's QR code).
-
-### Choosing a `session_url`
-
-A session is identified by its `session_url`, **not by the lecturer**. Everyone running with the same `session_url` on the same server at the same time shares **one** live session — the same active question, the same vote tally, the same results. Two lecturers who collide will silently overwrite each other's active question and mix their participants' votes together. (The session only fails with an explicit conflict error in one narrow case: two *different* repos declaring the same `session_url` at the same time. Sharing the *same* repo gives no error at all — everyone just lands in one shared session.)
-
-This is easy to get wrong, because the natural choice is a generic abbreviation of the lecture — `databases`, `programming`, `nlp`. **These are exactly the names most likely to collide**, because another lecturer teaching the same subject will reach for the same word. The same trap applies if you and colleagues share one question repo: you all inherit its single `session_url`.
-
-**Best practice — prefix with abbreviations that no one else would use.** Combine institution + course + lecturer (or any subset that makes it unmistakably yours):
-
-| ❌ Too generic (will collide) | ✅ Unique |
-|---|---|
-| `databases` | `thn-db-alb` (TH Nürnberg · Databases · Albrecht) |
-| `programming` | `tum-prog1-mueller` |
-| `nlp` | `lmu-nlp-ws25` |
-| `demo` | `ki-zentrum-demo` |
-
-The `session_url` only needs to be unique among sessions running **at the same time** on the same server — but since you can't know what colleagues picked, a personal prefix is the safe default. Pick it once, put the QR code in your slides, and it stays stable for the whole semester.
-
-> If you and colleagues want to run the **same demo** simultaneously, each of you must fork this repo and give your fork a unique `session_url`.
-
-### Optional: `host_shortlink`
-
-The participant join URL (`/join/<session_url>`) can be long and awkward to type. If you set up a shortlink on any URL shortener (e.g. [t.ly](https://t.ly), bit.ly, or your institution's own service) and point it at your join URL, add it as `host_shortlink` and QuiQui will show it in the host view (below the participant link) and on the projector view in place of the long join URL — handy to read out or put on a slide. The QR code still encodes the real join URL, so scanning always works. (QuiQui also still reads the older key `student_shortlink` as a fallback, for repos written before this field was renamed.)
-
-QuiQui treats it as display-only: it does **not** create the shortlink or check where it points, so make sure your shortener actually redirects to `<your-quiqui-host>/join/<session_url>`.
-
-### Optional: `shuffle`
-
-Set `shuffle: true` to randomise each question's answer order (default `false`). A single question can opt out with `shuffle: false` on that question. See [`about-quiqui.yaml`](about-quiqui.yaml) for a live demo.
-
----
-
-## Files in this repo
-
-| File | Topic |
-|---|---|
-| `config.yaml` | configures title and url slug |
-| `about-quiqui.yaml` | Questions about QuiQui itself — also a live demo of the `shuffle` option |
-| `lesson1-python-basics.yaml` | Python basics — variables, types, loops |
-| `lesson2-python-maths.yaml` | Python for maths — NumPy, float precision, recursion |
-| `lesson3-maths.yaml` | Linear algebra and statistics — eigenvectors, normal distribution, correlation |
-| `lesson4-economics.yaml` | Microeconomics — demand, market equilibrium, elasticity (English) |
-| `lesson5-sozialwissenschaften.yaml` | Sozialwissenschaften — Schichtung, Bürokratie, Forschungsmethoden (Deutsch) |
-| `lesson6-geschichte.yaml` | Geschichte — Weltkriege, Weimarer Republik, Französische Revolution (Deutsch) |
-| `generic.yaml` | Generic answer templates — A/B/C/D, Yes/No, True/False; use when your question text is in your slides |
-| `formatting-examples.yaml` | Showcase of supported text formatting — Markdown, raw HTML (color, highlight, sub/superscript), naked URLs, Markdown links, code, LaTeX |

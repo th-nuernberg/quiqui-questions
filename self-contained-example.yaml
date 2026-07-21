@@ -1,0 +1,81 @@
+# Self-contained QuiQui file — no GitHub repo needed.
+#
+# Download it, edit the config: and questions: below, and load it on the host
+# page via "From file". A session starts straight from your computer.
+#
+# Images: use external https:// URLs only — a self-contained file has no repo
+# behind it, so repo-relative image paths won't resolve.
+#
+# The four questions below are just a starting point — replace them. To learn
+# what QuiQui can do, run the lesson*.yaml files in this repo.
+
+config:
+  # session_url is the stable participant join address: /join/<session_url>.
+  # Participants can bookmark it — it stays the same for the whole lecture.
+  #
+  # IMPORTANT: change this from "example" to a value that is unmistakably YOURS.
+  # session_url must be unique across everyone using the same QuiQui instance —
+  # a session is identified by this value, not by you, so two people running the
+  # same session_url at once share ONE session and mix each other's votes.
+  # Generic names like "demo" or "python101" collide; prefix with an org or
+  # course abbreviation, e.g. "thn-db-alb" or "ki-zentrum-stats".
+  # (QuiQui warns you if you upload this file while it still says "example".)
+  #
+  # Allowed: letters, digits, hyphen (-), underscore (_), 1–64 chars. No spaces,
+  # slashes, or dots — it becomes part of the join URL and QR code.
+  session_url: example
+  title: "QuiQui Example (Self-contained Local File)"
+
+questions:
+  - question: "Which of these is the capital of France?"
+    type: single
+    answers:
+      - "Marseille"
+      - "Paris"
+      - "Nice"
+    correct: C
+    shuffle: true
+
+  - question: "Select all prime numbers."
+    type: multiple
+    answers:
+      - "2"
+      - "3"
+      - "4"
+      - "9"
+      - "11"
+    correct:
+      - A
+      - B
+      - E
+    explanation: "4 = 2×2 and 9 = 3×3 are not prime; 2, 3, and 11 have no divisors other than 1 and themselves."
+
+  - question: "What is $\\int_0^1 x\\,dx$?"
+    type: single
+    answers:
+      - "$0$"
+      - "$\\frac{1}{2}$"
+      - "$1$"
+      - "$2$"
+    correct: B
+    explanation: "$\\int_0^1 x\\,dx = \\left[\\frac{x^2}{2}\\right]_0^1 = \\frac{1}{2}$"
+
+  - question: |
+      Consider the following code:
+
+      ```python
+      def f(n):
+          return n * 2 if n > 0 else n
+
+      print(f(-3))
+      ```
+
+      What does it print?
+    type: single
+    answers:
+      - "-6"
+      - "-3"
+      - "6"
+      - "Error"
+    correct: B
+    explanation: "n = -3 is not > 0, so the else branch returns n unchanged."

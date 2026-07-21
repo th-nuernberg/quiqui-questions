@@ -1,0 +1,75 @@
+# Lesson 3 — Formatting questions and answers.
+#
+# Question and answer text is rendered with Markdown + KaTeX (LaTeX math),
+# and safe inline HTML passes through. Every question below shows a feature
+# in its own text — Reveal to read what it did.
+#
+# Authoring note: inside a quoted string, backslashes must be doubled
+# (`\\frac`); inside a block scalar (`|`, as used here) a single `\frac` is fine.
+
+- question: |
+    This text uses **bold**, *italic*, `inline code`, and a
+    [Markdown link](https://en.wikipedia.org/wiki/Markdown).
+    A bare URL auto-links too: https://en.wikipedia.org/wiki/Markdown
+
+    Which formatting system renders this?
+  type: single
+  answers:
+    - "Plain text only"
+    - "Microsoft Word"
+    - "Markdown"
+    - "PDF"
+  correct: C
+  explanation: "Standard Markdown, via [marked](https://marked.js.org). Bold, italics, code spans, links, and bare-URL auto-linking all work in questions and answers."
+
+- question: |
+    LaTeX math renders inline like $E = mc^2$ and as a display block:
+
+    $$\int_0^1 x\,dx = \frac{1}{2}$$
+
+    What does the integral above evaluate to?
+  type: single
+  answers:
+    - "$0$"
+    - "$1$"
+    - "$\\frac{1}{2}$"
+    - "$2$"
+  correct: C
+  explanation: "Use `$...$` for inline math and `$$...$$` for a display block. Rendered with KaTeX. Answers can contain math too, as these options do."
+
+- question: |
+    A multi-line question uses a YAML block scalar (`|`) so a **code block**
+    keeps its formatting:
+
+    ```python
+    def f(n):
+        return n * 2 if n > 0 else n
+    print(f(-3))
+    ```
+
+    What does it print?
+  type: single
+  answers:
+    - "-6"
+    - "6"
+    - "Error"
+    - "-3"
+  correct: D
+  explanation: "`-3` is not `> 0`, so the `else` branch returns it unchanged. Use a `|` block scalar whenever a question spans multiple lines or holds a code block or display math."
+
+- question: |
+    Safe inline **HTML** works too — for colour and highlighting:
+
+    <span style="color:red">**Red**</span> ·
+    <mark>highlighted</mark> ·
+    H<sub>2</sub>O · x<sup>2</sup>
+
+    Which element produced the highlighted word above?
+  type: single
+  answers:
+    - "`<hl>`"
+    - "`<mark>`"
+    - "`<span class=\"highlight\">`"
+    - "`<b>`"
+  correct: B
+  explanation: "`<mark>` highlights text. Colour spans, `<sub>`/`<sup>`, `<u>`, and `~~strikethrough~~` also work. HTML is sanitised (DOMPurify), so only safe tags render."

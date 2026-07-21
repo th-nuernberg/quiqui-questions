@@ -12,14 +12,15 @@
 # so an invalid value is rejected when you pull the repo (and would break the projector QR).
 session_url: demo
 
-# Optional: a custom shortlink participants can type instead of the long /join/ URL.
-# (QuiQui also still reads the older key `student_shortlink` as a fallback.)
+# Optional: a shortlink participants can type instead of the long /join/ URL.
+# Point it at <your-quiqui-host>/join/<session_url> yourself — QuiQui only displays
+# it, it doesn't create or check it. The QR code still uses the real join URL.
+# (Older key `student_shortlink` is also read, as a fallback.)
 # host_shortlink: https://t.ly/your-code
 
-# Optional: randomise the order of each question's answers.
-# When true, every question's answers are shuffled whenever you load a question set.
-# Global default is false and could be changed here.
-# Can be set for any question individually.
+# Optional: randomise each question's answer order (default false). Shuffled once
+# per load; the whole room sees the same order. A question can opt out with its own
+# `shuffle: false`. The correct-answer letter is remapped, so Reveal stays correct.
 shuffle: false
 
 # Display name shown in the header and browser tab as "QuiQui: <title>"

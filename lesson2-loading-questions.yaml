@@ -1,0 +1,66 @@
+# Lesson 2 — Where questions come from.
+#
+# QuiQui loads questions from one of two sources: a single self-contained file
+# on your computer, or a public GitHub repo of .yaml files (like this one).
+# This lesson is about choosing between them. Full walkthrough:
+# https://github.com/th-nuernberg/quiqui/blob/main/QUICKSTART.md
+
+- question: |
+    On the host page, **which two sources** can you load questions from?
+  type: multiple
+  answers:
+    - "A private database you log into"
+    - "A single self-contained file from your computer (“From file”)"
+    - "Typing questions live during the session"
+    - "A public GitHub repository of .yaml files (“From GitHub”)"
+  correct:
+    - B
+    - D
+  explanation: "Two sources: **From file** (one self-contained `.yaml` you pick from your computer) or **From GitHub** (a public repo of question files, like this deck). Pick whichever fits — no login, no database either way."
+
+- question: |
+    What do you have to do to start your **first poll** from a self-contained
+    file — nothing to install, no account?
+  type: multiple
+  answers:
+    - "Download one self-contained file, edit its questions, load it via “From file”"
+    - "Create a GitHub account and a repository first"
+    - "Set your own `session_url` in the file's `config:` (your join address)"
+    - "Install an app and register"
+  correct:
+    - A
+    - C
+  explanation: "Grab `self-contained-example.yaml`, edit its questions, and set a `session_url` of your own (that's the `/join/…` address participants use) — then load it via **From file**. No GitHub, no account. See the [QUICKSTART](https://github.com/th-nuernberg/quiqui/blob/main/QUICKSTART.md)."
+
+- question: |
+    The question files are written in [YAML format](https://www.datacamp.com/blog/what-is-yaml)
+    — a simple text format that humans and LLMs edit alike, so you don't have to
+    write the questions by hand. What does YAML consist of?
+  type: multiple
+  answers:
+    - "Compiled binary code you can't read"
+    - "Key–value pairs, e.g. `title: Demo`"
+    - "Lists of items, each on its own line starting with `-`"
+    - "Indentation (leading spaces) to group things together"
+  correct:
+    - B
+    - C
+    - D
+  explanation: "YAML is just readable text: `key: value` pairs, `-` lists, and indentation to nest them. Open a file in any editor (or ask an LLM to draft questions), then copy an example and change the words — the only rule is to keep the indentation lined up."
+
+- question: |
+    A **self-contained file** bundles its settings with its questions.
+    Which parts does it consist of?
+
+    See [the README](https://github.com/th-nuernberg/quiqui-questions#no-github-use-a-self-contained-file).
+  type: multiple
+  answers:
+    - "A `config:` block (session_url, title, …)"
+    - "A separate `config.yaml` file next to it"
+    - "A `questions:` list"
+    - "A database connection string"
+  correct:
+    - A
+    - C
+  explanation: "A self-contained file is a `config:` block (session_url, title, …) plus a `questions:` list — both in the one file. A repo instead keeps `config.yaml` separate and its question files as bare lists."
+

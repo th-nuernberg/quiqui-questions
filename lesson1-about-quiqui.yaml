@@ -1,0 +1,74 @@
+# Lesson 1 — What QuiQui is.
+#
+# A self-referential intro deck: every question is about QuiQui itself, and
+# where a feature can demonstrate itself in the room, it does. The shuffle
+# question below sets `shuffle: true` on itself, so its answers reorder every
+# session even though the repo default is off — a live demo of the feature it
+# asks about. Load this file, open each question, and Reveal the answer.
+
+- question: |
+    QuiQui is a **live audience response tool** for lectures and talks.
+    Which of these does it deliberately *not* need?
+  type: multiple
+  answers:
+    - "A database"
+    - "Participant logins or accounts"
+    - "An app install"
+    - "A build step to run it"
+  correct:
+    - A
+    - B
+    - C
+    - D
+  explanation: "None of them. QuiQui keeps session state in memory, participants just scan a QR code, and there is no build step. Minimal by design — see the [README](https://github.com/th-nuernberg/quiqui#readme)."
+
+- question: |
+    How do participants join a session and answer?
+  type: single
+  answers:
+    - "They install an app from the store"
+    - "They sign in with a university account"
+    - "They scan a QR code or open a short link, then tap an answer"
+  correct: C
+  explanation: "Participants scan the QR code (or open `/join/<session_url>`) and tap an answer on their phone. The room watches the bar chart fill in live."
+
+- question: |
+    This deck uses two question **types**. This one is `type: single`.
+    Which statement about the two types is correct?
+  type: single
+  answers:
+    - "`single` is for text, `multiple` is for numbers"
+    - "`single` allows one answer, `multiple` allows one or more"
+    - "They behave identically"
+    - "`multiple` is limited to exactly two answers"
+  correct: B
+  explanation: "`type: single` lets a participant pick exactly one option; `type: multiple` (like the first question in this file) lets them pick any number. That is the only difference."
+
+- question: |
+    QuiQui can **shuffle** answer order with `shuffle: true`.
+    At which levels can shuffling be set?
+  type: multiple
+  answers:
+    - "For the whole session, in `config` (repo `config.yaml` or a file's `config:`)"
+    - "For a single question, on the question itself"
+    - "For a whole question file in a question repository"
+  correct:
+    - A
+    - B
+  # This question sets shuffle: true on itself, so its own answers reorder every
+  # session — a live demo of the feature it asks about, even though the session
+  # default (config) is shuffle: false.
+  shuffle: true
+  explanation: "`shuffle: true` in the session config turns it on for everything — that's `config.yaml` in a repo, or the `config:` block of a self-contained file. A single question can override with its own `shuffle`. There is no per-file level. This very question sets `shuffle: true` on itself, so its answers reordered when you loaded it."
+
+- question: |
+    The host can press **Reveal** to highlight the correct answer(s) in green
+    for the whole room. When does a correct answer exist to reveal?
+  type: single
+  answers:
+    - "Always — QuiQui guesses the most popular answer"
+    - "Never — QuiQui only ever shows vote counts"
+    - "Only for `type: single` questions"
+    - "Only when the question has a `correct` field in the YAML"
+  correct: D
+  explanation: "Reveal highlights whatever the `correct` field names. Omit `correct` (see `lesson5-generic-templates.yaml`) and the Reveal button disappears — useful for opinion polls with no right answer."
