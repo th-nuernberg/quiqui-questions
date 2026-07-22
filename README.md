@@ -159,9 +159,9 @@ Include an image in a question (or answer) with standard Markdown image syntax, 
 - question: |
     Where is this landmark?
 
-    ![Eiffel Tower](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg/500px-Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg)
+    ![Imperial Castle](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Burg_N%C3%BCrnberg_02.jpg/500px-Burg_N%C3%BCrnberg_02.jpg)
   type: single
-  answers: ["London", "Paris", "Berlin"]
+  answers: ["Munich", "Nuremberg", "Berlin"]
   correct: B
 ```
 

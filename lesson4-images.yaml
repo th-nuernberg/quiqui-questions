@@ -6,14 +6,14 @@
 - question: |
     **Strategy 1 — external URL.** This image loads from Wikimedia:
 
-    ![Eiffel Tower](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg/320px-Paris_-_The_Eiffel_Tower_in_spring_-_2307.jpg)
+    ![Imperial Castle](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Burg_N%C3%BCrnberg_02.jpg/330px-Burg_N%C3%BCrnberg_02.jpg)
 
-    In which city does it stand?
+    In which German city does this Imperial Castle (*Kaiserburg*) stand?
   type: single
   answers:
-    - "London"
-    - "Rome"
-    - "Paris"
+    - "Munich"
+    - "Regensburg"
+    - "Nuremberg"
   correct: C
   explanation: "An `https://` image URL works from any source — repo *or* self-contained file. It's the only image option a self-contained file has, since there is no repo behind it to serve local files."
 
