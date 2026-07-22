@@ -25,17 +25,17 @@
 - question: |
     LaTeX math renders inline like $E = mc^2$ and as a display block:
 
-    $$\int_0^1 x\,dx = \frac{1}{2}$$
+    $$\sum_{i=1}^n i$$
 
-    What does the integral above evaluate to?
+    What does the sum above evaluate to?
   type: single
   answers:
-    - "$0$"
-    - "$1$"
-    - "$\\frac{1}{2}$"
-    - "$2$"
+    - "$n$"
+    - "$\\frac{n (n+1)}{2}$"
+    - "$\\frac{n (n-1)}{2}$"
+    - "$2n$"
   correct: C
-  explanation: "Use `$...$` for inline math and `$$...$$` for a display block. Rendered with KaTeX. Answers can contain math too, as these options do."
+  explanation: "Use `$...$` for inline math and `$$...$$` for a display block. Answers can contain math too, as these options do."
 
 - question: |
     A multi-line question uses a YAML block scalar (`|`) so a **code block**
