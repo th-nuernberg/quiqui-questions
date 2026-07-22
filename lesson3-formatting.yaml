@@ -31,8 +31,8 @@
   type: single
   answers:
     - "$n$"
-    - "$\\frac{n (n+1)}{2}$"
     - "$\\frac{n (n-1)}{2}$"
+    - "$\\frac{n (n+1)}{2}$"
     - "$2n$"
   correct: C
   explanation: "Use `$...$` for inline math and `$$...$$` for a display block. Answers can contain math too, as these options do."
