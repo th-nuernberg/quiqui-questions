@@ -44,6 +44,7 @@
     ```python
     def f(n):
         return n * 2 if n > 0 else n
+
     print(f(-3))
     ```
 
