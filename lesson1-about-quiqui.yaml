@@ -9,6 +9,8 @@
 - question: |
     QuiQui is a **live audience response tool** for lectures and talks.
     What is true about QuiQui?
+
+    See the [README](https://github.com/th-nuernberg/quiqui#readme).
   type: multiple
   answers:
     - "Questions are injected live into a running session"
@@ -24,7 +26,7 @@
     - B
     - C
     - D
-  explanation: "**True:** questions are injected live and participants just scan a QR code — no logins, no accounts. **False:** QuiQui needs no database (session state lives in memory) and no build step. Minimal by design — see the [README](https://github.com/th-nuernberg/quiqui#readme)."
+  explanation: "Minimalistic, simple, but powerful."
   shuffle: true
 
 - question: |
