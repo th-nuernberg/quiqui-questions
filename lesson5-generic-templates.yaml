@@ -38,7 +38,7 @@
     - "False"
 
 # ── Agreement scale ──────────────────────────────────────────────────────────
-- question: "What is your rating?"
+- question: "To what extent do you agree?"
   type: single
   answers:
     - "Strongly agree"
