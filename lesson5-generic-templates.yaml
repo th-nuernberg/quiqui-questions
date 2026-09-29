@@ -46,3 +46,13 @@
     - "Neutral"
     - "Disagree"
     - "Strongly disagree"
+
+# ── Rating scale ──────────────────────────────────---───────────────────────-
+- question: "How is your overall rating?"
+  type: single
+  answers:
+    - "Great 😄"
+    - "Okay 🙂"
+    - "Meh 😐"
+    - "Awful 😞"
+
