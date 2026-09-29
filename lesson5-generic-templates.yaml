@@ -8,7 +8,7 @@
 - question: "Given the options on the slide, choose your answer! (A, B, C, D)"
   type: single
   answers:
-    - option A
+    - " "
     - option B
     - option C
     - option D
