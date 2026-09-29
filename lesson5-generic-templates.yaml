@@ -5,16 +5,16 @@
 # Reveal button is hidden — there is nothing to mark green.
 
 # ── Single choice: A / B / C / D ─────────────────────────────────────────────
-- question: "Choose your answer! (A, B, C, D)"
+- question: "Given the options on the slide, choose your answer! (A, B, C, D)"
   type: single
   answers:
-    - "... (put your option on the slide)"
-    - "... (put your option on the slide)"
-    - "... (put your option on the slide)"
-    - "... (put your option on the slide)"
+    - 
+    - 
+    -
+    -
 
 # ── Multiple choice: A – E ───────────────────────────────────────────────────
-- question: "Choose one or more answers! (A – E)"
+- question: "Given the options on the slide, choose one or more answers! (A – E)"
   type: multiple
   answers:
     - "..."
@@ -31,7 +31,7 @@
     - "No"
 
 # ── True / False ─────────────────────────────────────────────────────────────
-- question: "Is the statement on the slide true or false?"
+- question: "Is the statement true or false?"
   type: single
   answers:
     - "True"
