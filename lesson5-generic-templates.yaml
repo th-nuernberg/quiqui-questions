@@ -8,10 +8,10 @@
 - question: "Given the options on the slide, choose your answer! (A, B, C, D)"
   type: single
   answers:
-    - 
-    - 
-    -
-    -
+    - option A
+    - option B
+    - option C
+    - option D
 
 # ── Multiple choice: A – E ───────────────────────────────────────────────────
 - question: "Given the options on the slide, choose one or more answers! (A – E)"
