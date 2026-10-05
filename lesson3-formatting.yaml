@@ -59,6 +59,23 @@
   explanation: "`-3` is not `> 0`, so the `else` branch returns it unchanged. Use a `|` block scalar whenever a question spans multiple lines or holds a code block or display math."
 
 - question: |
+    A quote starts with `>` and is shown with an accent bar:
+
+    > The best way to predict the future is to invent it.
+    >
+    > — Alan Kay
+
+    Which Markdown character starts a block quote?
+  type: single
+  answers:
+    - "`#`"
+    - "`>`"
+    - "`-`"
+    - "`*`"
+  correct: B
+  explanation: "`>` at the start of a line makes a block quote. Consecutive `>` lines join into one paragraph; a blank `>` line starts a new one. A quote can contain **bold**, `code` or math."
+
+- question: |
     Safe inline **HTML** works too — for colour and highlighting:
 
     <span style="color:red">**Red**</span> ·
