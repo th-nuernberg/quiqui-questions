@@ -15,7 +15,7 @@ New here? Start with the [Quickstart Guide](https://github.com/th-nuernberg/quiq
 |---|---|
 | `lesson*.yaml` | A guided tour of QuiQui — load each one and run it. The questions themselves teach what QuiQui is, how to load and format questions, images, unscored templates, self-hosting, and a German mixed-topic set. |
 | `self-contained-example.yaml` | A self-contained file (own `config:` + `questions:`) — download it, edit it, load it via **From file**, no GitHub needed. Your starting template. |
-| `config.yaml` | Session config for this repo — `session_url`, `title`, `shuffle`. Documented inline. |
+| `config.yaml` | Session config for this repo — `session_url`, `title`, `shuffle`, `reveal_explanation`. Documented inline. |
 | `images/` | Images referenced by repo-relative paths (see `lesson4-images.yaml`). |
 
 The `lesson*.yaml` files double as this repo's documentation: they walk through every feature by demonstrating it. Start with `lesson1-about-quiqui.yaml`.
@@ -56,10 +56,13 @@ Each question is a YAML list item with the following fields:
 | `type` | yes | `single` (one answer) or `multiple` (one or more) |
 | `answers` | yes | List of answer options |
 | `correct` | no | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; host-only, never shown to participants. Omit for unscored/generic questions. |
-| `explanation` | no | Optional explanation shown only to the host |
+| `explanation` | no | Optional explanation — shown to the host; also shown to the room after **✓ Reveal** when `reveal_explanation` is on. Supports Markdown (tables, lists, images). |
+| `reveal_explanation` | no | `true` shows this question's `explanation` to participants and the projector once the answer is revealed; `false` keeps it host-only — either way overriding the repo-wide `reveal_explanation` in [`config.yaml`](config.yaml) |
 | `shuffle` | no | Override answer shuffling for this one question: `true` forces its answers to shuffle, `false` keeps them fixed — either way overriding the repo-wide `shuffle` in [`config.yaml`](config.yaml) |
 
 The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the host's **✓ Reveal** button to highlight the correct options for the whole room. When `correct` is omitted, the Reveal button is hidden — useful when you keep the question text in your slides and only use QuiQui to collect votes.
+
+The `explanation` is a hint for the host by default. With `reveal_explanation: true` (per question, or once for the whole session in [`config.yaml`](config.yaml) / a self-contained file's `config:` block) it is also shown to participants and on the projector **after Reveal** — rendered as full Markdown, so tables, images and lists work. It is never sent before the reveal. Use a `|` block scalar for a multi-line explanation. See the last question of [`lesson1-about-quiqui.yaml`](lesson1-about-quiqui.yaml) for a live example with an image table.
 
 For a single correct answer, use a bare letter. For multiple correct answers, use a block sequence.
 
@@ -270,7 +273,10 @@ YAML FORMAT (follow exactly):
           - A
           - C
   - explanation: (OPTIONAL) a one- or two-sentence explanation. Shown only to
-    the host, never to participants. Include it for scored questions.
+    the host by default. Include it for scored questions.
+  - reveal_explanation: (OPTIONAL) true or false. When true, the explanation is
+    also shown to participants after the host presses Reveal. Only add it if I
+    ask for an explanation that the audience should see.
 
 FORMATTING RULES:
 - Markdown is allowed in question text and answers: use backticks for `code`,
@@ -314,7 +320,7 @@ Save the assistant's output as a `.yaml` file and load it in QuiQui — either d
 
 ## config.yaml
 
-An optional `config.yaml` at the repo root configures the session — `session_url`, `title`, and the optional `host_shortlink` and `shuffle`. **Every field is documented inline in [`config.yaml`](config.yaml) itself** — open it and read the comments there; they're the authoritative reference.
+An optional `config.yaml` at the repo root configures the session — `session_url`, `title`, and the optional `host_shortlink`, `shuffle` and `reveal_explanation`. **Every field is documented inline in [`config.yaml`](config.yaml) itself** — open it and read the comments there; they're the authoritative reference.
 
 The one field worth getting right is **`session_url`**, the participant join address (`/join/<session_url>`). A session is identified by its `session_url`, *not* by the lecturer: everyone running the same value on the same server at the same time lands in **one** shared session — same question, votes mixed together. QuiQui warns you before taking over a session that's already **live**, but the real fix is a value that's unmistakably yours. **Best practice — prefix with abbreviations that no one else would use.** Combine institution + course + lecturer (or any subset that makes it unmistakably yours), e.g. `thn-db-alb` rather than `databases`.
 

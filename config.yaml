@@ -23,6 +23,11 @@ session_url: demo
 # `shuffle: false`. The correct-answer letter is remapped, so Reveal stays correct.
 shuffle: false
 
+# Optional: show each question's `explanation` to the whole room (participants and
+# projector) after the host presses Reveal (default false = host-only). A question can
+# override this with its own `reveal_explanation: true|false`.
+reveal_explanation: false
+
 # Display name shown in the header and browser tab as "QuiQui: <title>"
 # Appears on both host and participant views.
 title: Demo Quiz

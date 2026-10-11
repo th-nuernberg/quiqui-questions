@@ -76,3 +76,33 @@
     - "Only when the question has a `correct` field in the YAML"
   correct: D
   explanation: "Reveal highlights whatever the `correct` field names. Omit `correct` (see `lesson5-generic-templates.yaml`) and the Reveal button disappears — useful for opinion polls with no right answer."
+
+- question: |
+    **Explanation for the room.** By default a question's `explanation` is a
+    hint for the host only. Which traffic-light phase tells drivers in Germany
+    to *get ready* to go?
+
+    Press **Reveal** to see this question's explanation appear below the result.
+  type: single
+  answers:
+    - "Red"
+    - "Red and yellow together"
+    - "Green"
+    - "Yellow"
+  correct: B
+  reveal_explanation: true
+  explanation: |
+    **Red and yellow together** announces that green is coming — drivers may
+    prepare to start, but must not move off yet.
+
+    | Phase | Light | Meaning |
+    |:---:|:---:|---|
+    | 1 | ![Red](images/traffic-light-red.svg) | **Stop** — wait behind the line |
+    | 2 | ![Red and yellow](images/traffic-light-red-yellow.svg) | **Get ready** — green follows next |
+    | 3 | ![Green](images/traffic-light.svg) | **Go** — proceed if the way is clear |
+    | 4 | ![Yellow](images/traffic-light-yellow.svg) | **Stop** if you can do so safely |
+
+    > Setting `reveal_explanation: true` on this question (or in `config.yaml`
+    > for the whole session) sends this text to every participant after Reveal.
+    > Tables, images, lists and quotes all render. Leave it out and the
+    > explanation stays visible to the host only.
