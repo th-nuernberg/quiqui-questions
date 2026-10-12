@@ -82,7 +82,7 @@
     hint for the host only. Which traffic-light phase tells drivers in Germany
     to *get ready* to go?
 
-    This question has `reveal_explaination: true`.
+    This question has `reveal_explanation: true`.
     So when you press **Reveal**, students will see this question's explanation 
     appear below the result.
   type: single
