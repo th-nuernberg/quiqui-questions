@@ -53,7 +53,7 @@ Each question is a YAML list item with the following fields:
 | Field | Required | Description |
 |---|---|---|
 | `question` | yes | Question text — plain text, Markdown, or LaTeX |
-| `type` | yes | `single` (one answer) or `multiple` (one or more) |
+| `type` | yes | `single` (one answer), `multiple` (one or more), `matching` (assign a value to every line) or `ranking` (put the items in order) — see [Matching and ranking](#matching-and-ranking) |
 | `answers` | yes | List of answer options |
 | `correct` | no | Correct answer letter(s) — bare letter for single (`B`), block sequence for multiple; host-only, never shown to participants. Omit for unscored/generic questions. |
 | `explanation` | no | Optional explanation — shown to the host; also shown to the room after **✓ Reveal** when `reveal_explanation` is on. Supports Markdown (tables, lists, images). |
@@ -101,6 +101,53 @@ Here with answers randomly shuffled.
   explanation: "Python has no char type; single characters are strings of length 1."
   shuffle: true
 ```
+
+### Matching and ranking
+
+Instead of picking answers, participants **assign a value to every line**. Each line gets a dropdown; the room sees one stacked result bar per line. Live demos are at the end of [`lesson1-about-quiqui.yaml`](lesson1-about-quiqui.yaml).
+
+**`type: matching` — short form.** One `[value]` per line, and that value is the correct one. QuiQui collects all values into one pool and offers it in every dropdown; a value disappears from the other dropdowns once it is used.
+
+```yaml
+- question: Select the correct answer for each question.
+  type: matching
+  answers:
+    - "The capital of Germany is [Berlin]."
+    - "The capital of France is [Paris]."
+    - "The capital of Poland is [Warsaw]."
+```
+
+**`type: matching` — long form.** Each blank lists its own options; the **first** one is the correct one. QuiQui shuffles the options, so their order gives nothing away. Values are not used up here — several lines may share an answer.
+
+```yaml
+- question: Match each country to its capital.
+  type: matching
+  answers:
+    - "Germany: [Berlin|Paris|London]"
+    - "France: [Paris|Berlin|Rome]"
+```
+
+Rules: exactly one `[blank]` per line; don't mix `[A]` and `[A|B]` in one question; choices are plain text, the text around the blank may use Markdown and LaTeX; a blank inside a `$…$` formula or a code span is rejected. `[text](url)` stays a link, `\[` is a literal bracket. There is no `correct` field — the key lives in the text.
+
+**`type: ranking`.** Participants give every item its own rank (a number dropdown in front of each item). `correct` lists the item letters **in rank order**; omit it for an opinion ranking with no right answer (then the result is the items sorted by average rank).
+
+```yaml
+- question: Put the steps of a RAG pipeline in order.
+  type: ranking
+  shuffle: true            # recommended for scored rankings (see below)
+  answers:
+    - Embed the chunks          # A
+    - Generate the answer       # B
+    - Chunk the documents       # C
+    - Retrieve top-k            # D
+  correct: [C, A, D, B]         # rank 1 = C, rank 2 = A, …
+
+- question: Rank these by your personal preference.
+  type: ranking             # no `correct` → unscored, no Reveal button
+  answers: [Option A, Option B, Option C]
+```
+
+Rankings are shown in the order you wrote the items — QuiQui does not shuffle on its own. For a **scored** ranking set `shuffle: true` (on the question or in `config.yaml`); otherwise a key like `[A, B, C, D]` shows the solved order to the room. The choices inside matching blanks are always shuffled regardless.
 
 ### Code blocks
 
