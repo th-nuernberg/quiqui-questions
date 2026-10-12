@@ -37,7 +37,7 @@
   explanation: "Participants scan the QR code (or open `/join/<session_url>`) and tap an answer on their phone. The room watches the bar chart fill in live."
 
 - question: |
-    This deck uses two question **types**. This one is `type: single`.
+    QuiQui has two **choice** question types. This one is `type: single`.
     Which statement about the two types is correct?
   type: single
   answers:
@@ -75,7 +75,7 @@
     - "Only for `type: single` questions"
     - "Only when the question has a `correct` field in the YAML"
   correct: D
-  explanation: "Reveal highlights whatever the `correct` field names. Omit `correct` (see `lesson5-generic-templates.yaml`) and the Reveal button disappears — useful for opinion polls with no right answer."
+  explanation: "Reveal highlights whatever the `correct` field names. Omit `correct` (see `lesson6-generic-templates.yaml`) and the Reveal button disappears — useful for opinion polls with no right answer."
 
 - question: |
     **Explanation for the room.** By default a question's `explanation` is a
@@ -109,108 +109,24 @@
     > Tables, images, lists and quotes all render. Leave it out and the
     > explanation stays visible to the host only.
 
-# ── Assignment questions: `matching` and `ranking` ───────────────────────────
-# Instead of picking answers, participants assign a value to every line. The
-# next five questions use both types and show each variant in action. They also
-# explain themselves: the explanation says what you just did and how it's written.
+# ── A first look at a third kind: matching ───────────────────────────────────
+# Lesson 5 covers matching and ranking questions in full.
 
 - question: |
-    **Matching — short form.** Every line below holds one value in square
-    brackets, like `[Open]`. QuiQui collects all of them into one pool and
-    offers it in every dropdown. Assign the right value to each line.
+    Besides choosing answers, QuiQui can ask participants to **assign a value
+    to every line**. Match each Baltic state to its capital.
 
-    Notice what happens to a value once you have used it.
+    Notice what happens to a capital once you have used it.
   type: matching
   answers:
-    - "To start voting on a question, the host presses [Open]."
-    - "To stop voting without showing the solution, the host presses [Pause]."
-    - "To highlight the correct answers for the whole room, the host presses [Reveal]."
-    - "To send everyone back to the waiting screen, the host presses [Close]."
+    - "The capital of Estonia is [Tallinn]."
+    - "The capital of Latvia is [Riga]."
+    - "The capital of Lithuania is [Vilnius]."
   explanation: |
-    This is `type: matching` in its **short form**: each line has exactly one
-    `[value]`, and that value is the correct one. QuiQui derives the pool of
-    choices from all lines, shuffles it once, and offers it in every dropdown.
-    A value disappears from the other dropdowns once it is used, so each
-    value fits exactly one line.
+    This is `type: matching`. Each line holds one `[value]` in square brackets,
+    and that value is the correct one. QuiQui collects all values into one
+    pool and offers it in every dropdown; a value disappears from the other
+    dropdowns once it is used. There is no `correct:` field — the key lives in
+    the text itself.
 
-    There is no `correct:` field — the key lives in the text itself.
-
-- question: |
-    **Matching — long form.** Here each blank lists its own options:
-    `[correct|wrong|wrong]`. The **first** option is the correct one — QuiQui
-    shuffles them for you, so the order you see tells you nothing.
-
-    Choose the right value for each line. Unlike the short form, a value is
-    *not* used up here — two lines may legitimately share an answer.
-  type: matching
-  answers:
-    - "`type: single` lets a participant pick [exactly one answer|any number of answers|no answer at all]."
-    - "`type: multiple` lets a participant pick [any number of answers|exactly one answer|at most two answers]."
-    - "A question without a `correct` field has [no Reveal button|a Reveal button that shows nothing|a random correct answer]."
-    - "`shuffle: true` randomises the [answer order|font size|number of participants]."
-  explanation: |
-    **Long form:** `"… is [right|wrong|wrong] …"`. The first option is the
-    correct one; QuiQui shuffles each blank's options, so authoring order never
-    gives the answer away. Use this form when different lines need different
-    choices, or when several lines share one answer (the short form uses each
-    value only once).
-
-    Choices are plain text. The text *around* the blank is ordinary
-    Markdown / LaTeX, like any other question.
-
-- question: |
-    **Matching with maths.** The text around a blank can contain Markdown and
-    LaTeX; only the choices are plain text. Assign each result to its
-    expression.
-  type: matching
-  answers:
-    - "$2^3 =$ [8]"
-    - "$\\sqrt{81} =$ [9]"
-    - "$3! =$ [6]"
-    - "$10 \\bmod 4 =$ [2]"
-  explanation: |
-    Written as `"$2^3 =$ [8]"`. A `[blank]` must sit in plain text — inside a
-    `$…$` formula or a code span it is rejected when the file loads, because it
-    could not be answered.
-
-- question: |
-    **Ranking.** Put the steps of a live QuiQui question in the order in which
-    they happen. Give every item its own rank — 1 is first.
-  type: ranking
-  shuffle: true
-  answers:
-    - "The host reveals the correct answer"       # A
-    - "Participants submit their answers"         # B
-    - "The host loads a question file"            # C
-    - "The host closes the question"              # D
-    - "The host opens the question for voting"    # E
-  correct: [C, E, B, A, D]
-  explanation: |
-    `type: ranking` is matching over the ranks 1…n. The answers can be written
-    in any order; `correct` lists the item letters **in rank order**
-    (first letter = rank 1), here `[C, E, B, A, D]`.
-
-    Rankings are shown in the order you wrote them — QuiQui does not shuffle
-    unless asked. For a scored ranking, always set `shuffle: true` (as this
-    question does); otherwise a `correct` list like `[A, B, C, D]` shows the
-    solved order to the room.
-
-- question: |
-    **Ranking without a right answer.** Which QuiQui property matters most to
-    *you*? Rank them by personal preference — 1 is the most important.
-  type: ranking
-  answers:
-    - "A live bar chart everyone sees"
-    - "No login or app for participants"
-    - "Maths, code and images in questions"
-    - "Questions as plain text files (or LLM-generated)"
-    - "Self-hosting on your own server"
-  explanation: |
-    A ranking with **no `correct` field** is an opinion poll: there is nothing
-    to reveal, so the Reveal button is not shown. Instead, once voting is
-    open, the room's result is the items **sorted by average rank**
-    (Ø 1.0 = everyone put it first).
-
-    Items are shown in the authored order here, since for an opinion ranking
-    there is no key to hide — add `shuffle: true` if you want every session to
-    start from a different order.
+    Lesson 5 shows the long form, matching with maths, and ranking questions.

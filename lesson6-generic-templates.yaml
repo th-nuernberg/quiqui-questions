@@ -1,4 +1,4 @@
-# Lesson 5 — Templates for questions with no right answer.
+# Lesson 6 — Templates for questions with no right answer.
 #
 # When the question lives on your slide and you only want a live vote, omit the
 # `correct` field. QuiQui then collects votes and shows the bar chart, but the

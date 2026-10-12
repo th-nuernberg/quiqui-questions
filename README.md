@@ -13,7 +13,7 @@ New here? Start with the [Quickstart Guide](https://github.com/th-nuernberg/quiq
 
 | File | Purpose |
 |---|---|
-| `lesson*.yaml` | A guided tour of QuiQui — load each one and run it. The questions themselves teach what QuiQui is, how to load and format questions, images, unscored templates, self-hosting, and a German mixed-topic set. |
+| `lesson*.yaml` | A guided tour of QuiQui — load each one and run it. The questions themselves teach what QuiQui is, how to load and format questions, images, matching and ranking questions, unscored templates, self-hosting, and a German mixed-topic set. |
 | `self-contained-example.yaml` | A self-contained file (own `config:` + `questions:`) — download it, edit it, load it via **From file**, no GitHub needed. Your starting template. |
 | `config.yaml` | Session config for this repo — `session_url`, `title`, `shuffle`, `reveal_explanation`. Documented inline. |
 | `images/` | Images referenced by repo-relative paths (see `lesson4-images.yaml`). |
@@ -62,7 +62,7 @@ Each question is a YAML list item with the following fields:
 
 The `correct` field uses answer letters (`A`, `B`, `C`, …) — upper or lower case both work. It is used by the host's **✓ Reveal** button to highlight the correct options for the whole room. When `correct` is omitted, the Reveal button is hidden — useful when you keep the question text in your slides and only use QuiQui to collect votes.
 
-The `explanation` is a hint for the host by default. With `reveal_explanation: true` (per question, or once for the whole session in [`config.yaml`](config.yaml) / a self-contained file's `config:` block) it is also shown to participants and on the projector **after Reveal** — rendered as full Markdown, so tables, images and lists work. It is never sent before the reveal. Use a `|` block scalar for a multi-line explanation. See the last question of [`lesson1-about-quiqui.yaml`](lesson1-about-quiqui.yaml) for a live example with an image table.
+The `explanation` is a hint for the host by default. With `reveal_explanation: true` (per question, or once for the whole session in [`config.yaml`](config.yaml) / a self-contained file's `config:` block) it is also shown to participants and on the projector **after Reveal** — rendered as full Markdown, so tables, images and lists work. It is never sent before the reveal. Use a `|` block scalar for a multi-line explanation. The traffic-light question in [`lesson1-about-quiqui.yaml`](lesson1-about-quiqui.yaml) is a live example with an image table.
 
 For a single correct answer, use a bare letter. For multiple correct answers, use a block sequence.
 
@@ -104,7 +104,7 @@ Here with answers randomly shuffled.
 
 ### Matching and ranking
 
-Instead of picking answers, participants **assign a value to every line**. Each line gets a dropdown; the room sees one stacked result bar per line. Live demos are at the end of [`lesson1-about-quiqui.yaml`](lesson1-about-quiqui.yaml).
+Instead of picking answers, participants **assign a value to every line**. Each line gets a dropdown; the room sees one stacked result bar per line. Live demos are in [`lesson5-matching-ranking.yaml`](lesson5-matching-ranking.yaml) (a first matching example is at the end of [`lesson1-about-quiqui.yaml`](lesson1-about-quiqui.yaml)).
 
 **`type: matching` — short form.** One `[value]` per line, and that value is the correct one. QuiQui collects all values into one pool and offers it in every dropdown; a value disappears from the other dropdowns once it is used.
 
@@ -148,6 +148,54 @@ Rules: exactly one `[blank]` per line; don't mix `[A]` and `[A|B]` in one questi
 ```
 
 Rankings are shown in the order you wrote the items — QuiQui does not shuffle on its own. For a **scored** ranking set `shuffle: true` (on the question or in `config.yaml`); otherwise a key like `[A, B, C, D]` shows the solved order to the room. The choices inside matching blanks are always shuffled regardless.
+
+
+### Generic / unscored questions
+
+Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically. Each answer option is labelled with a letter badge (A, B, C, …) — participants pick the letter shown on the slide.
+
+`lesson6-generic-templates.yaml` contains ready-to-use templates. Examples:
+
+```yaml
+# A–D single choice
+- question: "Choose your answer! (A, B, C, D)"
+  type: single
+  answers:
+    - "... is correct"
+    - "... is correct"
+    - "... is correct"
+    - "... is correct"
+
+# Yes / No
+- question: "What do you think? (Yes / No)"
+  type: single
+  answers:
+    - "Yes"
+    - "No"
+
+# True / False
+- question: "Is the statement true or false?"
+  type: single
+  answers:
+    - "True"
+    - "False"
+
+# 5-point agreement scale
+- question: "What is your rating?"
+  type: single
+  answers:
+    - "Strongly agree"
+    - "Agree"
+    - "Neutral"
+    - "Disagree"
+    - "Strongly disagree"
+```
+
+> **YAML escaping:** inside quoted strings (`"..."`) backslashes must be doubled: `\\frac`, `\\sum`. Inside block scalars (`|`) a single backslash is fine: `\frac`, `\sum`.
+
+
+
+## Formatting
 
 ### Code blocks
 
@@ -242,48 +290,6 @@ Here `images/traffic-light.svg` is a file in this repo (see the `images/` folder
 
 `lesson3-formatting.yaml` and `lesson4-images.yaml` have runnable examples of the formatting options above — Markdown, LaTeX, code blocks, raw HTML (colour, highlight, sub/superscript), and the two ways to include images. Load and run them to see each feature rendered. They don't cover every case — tables and blockquotes, for instance, also render fine (Markdown via `marked`, sanitised by DOMPurify) — so extend them as new needs come up.
 
-### Generic / unscored questions
-
-Omit `correct` when the question text lives in your slides and you only need QuiQui to collect votes. The Reveal button is hidden automatically. Each answer option is labelled with a letter badge (A, B, C, …) — participants pick the letter shown on the slide.
-
-`lesson5-generic-templates.yaml` contains ready-to-use templates. Examples:
-
-```yaml
-# A–D single choice
-- question: "Choose your answer! (A, B, C, D)"
-  type: single
-  answers:
-    - "... is correct"
-    - "... is correct"
-    - "... is correct"
-    - "... is correct"
-
-# Yes / No
-- question: "What do you think? (Yes / No)"
-  type: single
-  answers:
-    - "Yes"
-    - "No"
-
-# True / False
-- question: "Is the statement true or false?"
-  type: single
-  answers:
-    - "True"
-    - "False"
-
-# 5-point agreement scale
-- question: "What is your rating?"
-  type: single
-  answers:
-    - "Strongly agree"
-    - "Agree"
-    - "Neutral"
-    - "Disagree"
-    - "Strongly disagree"
-```
-
-> **YAML escaping:** inside quoted strings (`"..."`) backslashes must be doubled: `\\frac`, `\\sum`. Inside block scalars (`|`) a single backslash is fine: `\frac`, `\sum`.
 
 ---
 
