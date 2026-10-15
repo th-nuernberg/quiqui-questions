@@ -79,3 +79,12 @@ questions:
       - "Error"
     correct: B
     explanation: "n = -3 is not > 0, so the else branch returns n unchanged."
+
+  - question: "Match each Baltic state to its capital."
+    type: matching
+    answers:
+      - "The capital of Estonia is [Tallinn]."
+      - "The capital of Latvia is [Riga]."
+      - "The capital of Lithuania is [Vilnius]."
+    explanation: |
+      This is `question type: matching`. 
