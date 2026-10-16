@@ -5,7 +5,7 @@ Sample question files for [QuiQui](https://github.com/th-nuernberg/quiqui), a li
 Each `.yaml` file is one set of questions. Load one **directly from your computer** (see below) or **point QuiQui at a public GitHub repo** like this one and select a file. Either way, the question format is identical — this README is the reference.  
 New here? Start with the [Quickstart Guide](https://github.com/th-nuernberg/quiqui/blob/main/QUICKSTART.md).
 
-> **Limits:** each question file must be under **100 KB**, with at most **6 answer options** (A–F) per question. YAML is validated on load — format errors show as a clear message in the host view. A typical lecture file is well under 50 KB. For the GitHub route, the repo must be **public** and under **1 MB** total (checked via the GitHub API before cloning).
+> **Limits:** each question file must be under **100 KB**, with at most **20 answer options** (A–T) per question. YAML is validated on load — format errors show as a clear message in the host view. A typical lecture file is well under 50 KB. For the GitHub route, the repo must be **public** and under **1 MB** total (checked via the GitHub API before cloning).
 
 ---
 
@@ -317,7 +317,9 @@ YAML FORMAT (follow exactly):
   - question: (REQUIRED) the question text. Plain text, Markdown, or LaTeX.
   - type: (REQUIRED) either "single" (exactly one correct answer) or
     "multiple" (one or more correct answers).
-  - answers: (REQUIRED) a YAML list of 2 to 6 answer options. Never more than 6.
+  - answers: (REQUIRED) a YAML list of 2 to 20 answer options. Keep it to a handful —
+    long lists are hard to read on a phone. Short answers (numbers,
+    angles, single words) are shown side by side in columns.
   - correct: (REQUIRED only for scored questions; OMIT entirely for unscored)
     answer letters A, B, C, … matching the answer order (A = first answer).
     * For type "single": a single bare letter, e.g.  correct: B
@@ -349,7 +351,7 @@ FORMATTING RULES:
 - ESCAPING (important): inside double-quoted strings, every backslash must be
   DOUBLED — write "$\\frac{a}{b}$", "$\\sum_{i=1}^{n}$". Inside a block scalar
   (the | form) a single backslash is fine — write $\frac{a}{b}$.
-- Keep each question to at most 6 answers.
+- Up to 20 answers are allowed, but aim for 6 or fewer — long lists are hard to read on a phone.
 
 EXAMPLE of a valid scored question:
 - question: "What is the result of `7 // 2` in Python?"

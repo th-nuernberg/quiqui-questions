@@ -49,6 +49,24 @@
   explanation: "`type: single` lets a participant pick exactly one option; `type: multiple` (like the first question in this file) lets them pick any number. That is the only difference."
 
 - question: |
+    How many answer options can a single QuiQui question have at most?
+
+    Short answers like these are laid out **side by side in columns**, so
+    the whole question fits on the screen.
+  type: single
+  answers:
+    - "2"
+    - "4"
+    - "6"
+    - "8"
+    - "10"
+    - "12"
+    - "16"
+    - "20"
+  correct: H
+  explanation: "Up to 20 options (A–T). Short answers (numbers, angles, single words) go into columns automatically; long answers stay one per row. On a phone, more than about 6 long options get hard to read."
+
+- question: |
     QuiQui can **shuffle** answer order with `shuffle: true`.
     At which levels can shuffling be set?
   type: multiple
